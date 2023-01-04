@@ -1,0 +1,10 @@
+img {
+	&.lazy {
+		transition: opacity 1.2s $expo-out;
+		opacity: 0;
+
+		&.loaded {
+			opacity: 1;
+		}
+	}
+}

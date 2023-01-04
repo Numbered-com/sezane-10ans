@@ -1,0 +1,95 @@
+---------------------------------------------
+* PRÉNOM 2 NOUS A DIT CE QU'ELLE VOULAIT  ✨ *
+---------------------------------------------
+
+==============================
+
+image : Sezane
+https://www.sezane.com/fr
+
+==============================
+https://www.sezane.com/fr
+
+==============================
+
+{{recipient_name}}, {{sender_name}} nous a confié sa liste de Noël !Vous savez ce qu’il vous reste à faire…
+https://www.sezane.com/fr
+
+==============================
+
+Découvrir (https://www.sezane.com/fr - https://www.sezane.com/fr)
+
+==============================
+
+image : {{products[0].title}}
+https://www.sezane.com/fr
+
+image : No1
+https://www.sezane.com/fr
+
+{{products[0].title}} -  {{products[0].price}}
+https://www.sezane.com/fr
+
+image : {{products[1].title}}
+https://www.sezane.com/fr
+
+image : No2
+https://www.sezane.com/fr
+
+{{products[1].title}} - {{products[1].price}}
+https://www.sezane.com/fr
+
+image : {{products[2].title}}
+https://www.sezane.com/fr
+
+image : No3
+https://www.sezane.com/fr
+
+{{products[2].title}} - {{products[2].price}}
+https://www.sezane.com/fr
+
+==============================
+
+Découvrir (https://www.sezane.com/fr - https://www.sezane.com/fr)
+
+==============================
+
+image : idees cadeaux
+https://www.sezane.com/fr
+
+==============================
+
+image : Les sacs
+https://www.sezane.com/fr/collection/maroquinerie
+
+image : NEW IN
+https://www.sezane.com/fr/gift-guide-2022
+
+image : LA MAILLE
+https://www.sezane.com/fr/collection/maille-vue-par-couleurs
+
+==============================
+
+Découvrir (https://www.sezane.com/fr - https://www.sezane.com/fr)
+
+==============================
+
+TÉLÉCHARGEZ NOTRE APPLICATION
+https://app.adjust.com/4mei2ng?campaign=FR&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Ffr
+
+Suivez vos commandes encore plus facilement sur notre nouvelle Application Sézane - disponible pour iPhone et Android ! 
+https://www.sezane.com/fr
+
+image : Pour iPhone
+https://app.adjust.com/4mei2ng?campaign=FR&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Ffr
+
+image : Pour Android
+https://app.adjust.com/4mei2ng?campaign=FR&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Ffr
+
+==============================
+
+Vous avez des questions ? N'hésitez pas à nous contacter :
+
+E-mail : hello@sezane.com | Whatsapp : +33 6 13 74 29 35
+
+Se désinscrire

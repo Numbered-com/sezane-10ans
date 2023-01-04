@@ -1,0 +1,73 @@
+/* stylelint-disable */
+::selection {
+	background: #999;
+	color: $white;
+}
+
+::-moz-selection {
+	background: #999;
+	color: $white;
+}
+
+html {
+	--sbw: 0px;
+	--vh: 100vh;
+	background: $beige;
+
+	font-size: #{math.div(1000, strip-unit($mobile-mockup-width))}vw; // old browser fallback
+	font-size: calc(#{math.div(1000, strip-unit($mobile-mockup-width))}vw - var(--sbw) / #{math.div(strip-unit($mobile-mockup-width), 10)});
+
+	@include mobile-landscape() {
+		font-size: 10px;
+	}
+
+	@include desktop() {
+		font-size: #{math.div(1000, strip-unit($desktop-mockup-width))}vw; // old browser fallback
+		font-size: calc(#{math.div(1000, strip-unit($desktop-mockup-width))}vw - var(--sbw) / #{math.div(strip-unit($desktop-mockup-width), 10)}); // no min support browser fallback
+		font-size: min(calc(#{math.div(1000, strip-unit($desktop-mockup-width))}vw - var(--sbw) / #{math.div(strip-unit($desktop-mockup-width), 10)}), #{10px * math.div($max-width, $desktop-mockup-width)});
+	}
+}
+/* stylelint-enable */
+
+body {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	font-family: $font-sans;
+	color: $black;
+
+	@include font-smoothing(on);
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.is-loading * {
+	cursor: progress !important;
+}
+
+.scrollable {
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+}
+
+.mobile-only {
+	@include desktop {
+		display: none !important;
+	}
+}
+
+.desktop-only {
+	@include mobile {
+		display: none !important;
+	}
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+	input {
+	  font-size: 16px !important;
+	}
+ }

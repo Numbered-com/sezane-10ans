@@ -1,0 +1,7 @@
+.storybook {
+	margin: 4rem 0 0 span(1);
+
+	@include desktop() {
+		margin: 5rem 0 0 span(1);
+	}
+}

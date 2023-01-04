@@ -1,0 +1,218 @@
+.intro {
+	text-align: center;
+	margin: 0 auto;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $beige;
+
+	.scroll {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+
+		@media (hover: none) {
+			padding-bottom: 4rem;
+			overflow-y: scroll;
+		}
+
+		@include desktop {
+			align-items: center;
+			overflow: hidden;
+		}
+	}
+
+	.card {
+		position: relative;
+		z-index: 1;
+		background: $beige;
+		width: span(10);
+		margin-top: 9rem;
+		overflow: hidden;
+
+		@include desktop {
+			width: span(11);
+			margin-top: 0;
+		}
+	}
+
+	h2 {
+		margin-top: -0.65rem;
+		line-height: 0.75;
+
+		@include desktop {
+			margin-top: -1.25rem;
+		}
+	}
+
+	.content {
+		padding: 3rem span(1) 2rem;
+
+		@include desktop {
+			padding: 4rem 6rem 2rem;
+		}
+	}
+
+	// Script Image
+	.message {
+		margin: 0 auto;
+		max-height: 67px;
+		display: block;
+		width: auto;
+
+		@include desktop {
+			max-height: 91px;
+		}
+	}
+
+	.description {
+		margin: 2.1rem auto 1.4rem;
+
+		@include desktop {
+			max-width: 37rem;
+		}
+	}
+
+	.form {
+		margin: 1.4rem auto 2rem;
+
+		@include desktop {
+			width: span(4 wider);
+			margin: 1rem auto 0;
+		}
+
+		.input {
+			margin-bottom: 1.7rem;
+
+			@include desktop {
+				margin-bottom: 2.2rem;
+			}
+		}
+
+		.invitation {
+			margin-bottom: 1rem;
+
+			@include desktop {
+				margin-bottom: 1rem;
+			}
+		}
+
+		.button {
+			margin: 2.6rem auto 0.7rem;
+
+			@include desktop {
+				margin-top: 2.4rem;
+			}
+		}
+
+		.checkbox {
+			text-align: left;
+
+			p {
+				margin-left: 1rem;
+				color: rgba($black, 0.6);
+			}
+		}
+	}
+
+	.legals {
+		font-size: 1rem;
+		color: rgba($black, 0.6);
+
+		@include desktop {
+			font-size: 1.1rem;
+		}
+	}
+
+	.titleSplit {
+		position: relative;
+		top: 0.5rem;
+
+		@include desktop {
+			top: 1.05rem;
+		}
+	}
+
+	.background {
+		position: fixed;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		@include desktop {
+			margin: 0 auto;
+		}
+
+		& > div {
+			display: flex;
+			justify-content: space-between;
+
+			@include desktop {
+				padding: 0 0.7rem;
+			}
+		}
+
+		.column {
+			$duration: 20s;
+
+			animation: translate $duration linear infinite;
+			position: relative;
+			will-change: transform;
+			width: 12.5rem;
+			flex-shrink: 0;
+			margin-right: 0.15rem;
+
+			@include desktop {
+				margin-right: 0;
+				width: 23.15rem;
+			}
+
+			&:nth-child(1) {
+				animation-duration: $duration + 0.1s;
+			}
+
+			&:nth-child(2) {
+				animation-duration: $duration + 1s;
+			}
+
+			&:nth-child(3) {
+				animation-duration: $duration + 0.3s;
+			}
+
+			&:nth-child(4) {
+				animation-duration: $duration + 0.1s;
+			}
+
+			&:nth-child(5) {
+				animation-duration: $duration + 2s;
+			}
+		}
+
+		.image {
+			width: 100%;
+			margin-bottom: 0.15rem;
+
+			@include desktop {
+				margin-bottom: 0.7rem;
+			}
+		}
+	}
+}
+
+@keyframes translate {
+	0% {
+		transform: translateY(0%) translateZ(0);
+	}
+
+	100% {
+		transform: translateY(-50%) translateZ(0);
+	}
+}

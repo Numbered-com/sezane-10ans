@@ -1,0 +1,36 @@
+.flickityWrapper {
+	position: relative;
+}
+
+.flickity {
+	display: flex;
+	outline: none;
+	align-items: flex-end;
+}
+
+.wrapper {
+	width: 100%;
+}
+
+// .btn {
+// 	position: absolute;
+// 	z-index: 2;
+// 	top: 0;
+// 	height: 100%;
+
+// 	@include desktop() {
+// 		width: span(4);
+// 	}
+
+// 	&Prev {
+// 		@include desktop() {
+// 			left: 0;
+// 		}
+// 	}
+
+// 	&Next {
+// 		@include desktop() {
+// 			right: 0;
+// 		}
+// 	}
+// }

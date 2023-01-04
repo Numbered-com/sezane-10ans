@@ -1,0 +1,89 @@
+.thanks {
+	position: fixed;
+	z-index: 101;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	visibility: hidden;
+	padding-top: 65.53px;
+	background: $beige;
+
+	@include desktop {
+		padding-top: 161px;
+	}
+
+	@media (min-width: 1190px) {
+		padding-top: 118px;
+	}
+
+	.message {
+		color: $white;
+
+		@include desktop {
+			width: 50rem;
+		}
+	}
+
+	.content {
+		position: relative;
+		width: 100%;
+		padding: 1.4rem 4rem;
+
+		@include desktop {
+			height: 100%;
+		}
+	}
+
+	.text {
+		position: relative;
+		height: 100%;
+		z-index: 1;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		flex-direction: column;
+		padding: 0 span(1 wide);
+
+		@include desktop {
+			justify-content: center;
+		}
+
+		.title {
+			font-size: 7rem;
+			color: $white;
+			margin-bottom: 1rem;
+			padding-top: 10rem;
+
+			@include desktop {
+				font-size: 12.5rem;
+				padding-top: 0;
+			}
+		}
+
+		.button {
+			margin-top: 4rem;
+
+			@include desktop {
+				margin: 3.7rem auto 0;
+			}
+		}
+	}
+
+	.image {
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		& > span {
+			height: 100% !important;
+		}
+	}
+}

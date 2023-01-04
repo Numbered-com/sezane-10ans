@@ -1,0 +1,40 @@
+.cardTeam {
+	height: 100%;
+	min-height: 42.6rem;
+	display: flex;
+	flex-direction: column;
+
+	// FIXME: remove flicker
+	@include hover {
+		.image img {
+			transform: scale(1.05) translateZ(0);
+			transition-duration: 0.6s;
+		}
+	}
+}
+
+.wrapper {
+	height: 100%;
+	position: relative;
+	margin-bottom: 2.2rem;
+	background-color: $black;
+}
+
+.logo {
+	width: 50%;
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: 50%;
+	fill: $white;
+	transform: translate(-50%, -50%);
+}
+
+.image img {
+	transition: transform 1s $expo-out;
+}
+
+.role {
+	margin-top: 0.8rem;
+	opacity: 0.6;
+}

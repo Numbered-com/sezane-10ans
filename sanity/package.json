@@ -1,0 +1,64 @@
+{
+  "name": "sanity",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Léo Cheron <leo@cheron.works>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "start:local": "sanity start",
+    "test": "sanity check",
+    "build": "sanity build public -y",
+    "locales:push": "sanity exec --with-user-token scripts/createMissingLocales.js"
+  },
+  "dependencies": {
+    "@sanity/base": "^2.35.2",
+    "@sanity/components": "^2.14.0",
+    "@sanity/core": "^2.35.0",
+    "@sanity/dashboard": "^2.35.2",
+    "@sanity/default-layout": "^2.35.2",
+    "@sanity/default-login": "^2.35.2",
+    "@sanity/desk-tool": "^2.35.2",
+    "@sanity/language-filter": "^2.35.0",
+    "@sanity/production-preview": "^2.33.2",
+    "@sanity/vision": "^2.35.2",
+    "prop-types": "^15.8",
+    "react": "^17.0",
+    "react-dom": "^17.0",
+    "react-icons": "^4.3.1",
+    "sanity-plugin-asset-source-cloudinary": "^0.1.1",
+    "sanity-plugin-color-picker": "^1.0.3",
+    "sanity-plugin-media": "^1.4.4",
+    "sanity-plugin-order-documents": "^0.0.22",
+    "sanity-plugin-tabs": "^2.0.3",
+    "sanity-plugin-vercel-deploy": "^2.1.6",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/eslint-parser": "^7.16.5",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.7.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard-jsx": "^10.0.0",
+    "eslint-config-standard-react": "^11.0.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0",
+    "eslint-plugin-standard": "^4.1.0",
+    "nanoid": "^3.2.0",
+    "node-fetch": "^3.2.0",
+    "sharp": "^0.29.3"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "> 3%"
+  ],
+  "keywords": [
+    "sanity"
+  ]
+}

@@ -1,0 +1,91 @@
+-------------------------------------------
+* NAME 1 TOLD US WHAT THEY REALLY WANT ;) *
+-------------------------------------------
+
+==============================
+
+image : Sezane
+https://www.sezane.com/{{locale}}
+
+==============================
+https://www.sezane.com/{{locale}}
+
+==============================
+
+{{recipient_name}}, {{sender_name}} shared their list of the pieces they’re secretly hoping to receive this holiday season. You know what to do ;)
+https://www.sezane.com/eu
+
+==============================
+
+Discover (https://www.sezane.com/{{locale}} - https://www.sezane.com/{{locale}})
+
+==============================
+
+image : {{products[0].title}}
+https://www.sezane.com/{{locale}}
+
+image : No1
+https://www.sezane.com/{{locale}}
+
+{{products[0].title}} -  {{products[0].price}}
+
+image : {{products[1].title}}
+https://www.sezane.com/{{locale}}
+
+image : No2
+https://www.sezane.com/{{locale}}
+
+{{products[1].title}} - {{products[1].price}}
+
+image : {{products[2].title}}
+https://www.sezane.com/{{locale}}
+
+image : No3
+https://www.sezane.com/{{locale}}
+
+{{products[2].title}} - {{products[2].price}}
+
+==============================
+
+Discover (https://www.sezane.com/{{locale}} - https://www.sezane.com/{{locale}})
+
+==============================
+
+image : idees cadeaux
+https://www.sezane.com/{{locale}}
+
+==============================
+
+image : Bags
+https://www.sezane.com/{{locale}}/collection/bags-wallets
+
+image : NEW IN
+https://www.sezane.com/{{locale}}/gift-guide-2022
+
+image : KNITWEAR
+https://www.sezane.com/{{locale}}/collection/the-knitwear-gallery
+
+==============================
+
+Discover (https://www.sezane.com/{{locale}} - https://www.sezane.com/{{locale}})
+
+==============================
+
+DOWNLOAD OUR APP
+https://app.adjust.com/s0e08fg?campaign=INT&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Feu
+
+Your Portal to Paris: be the first to discover our new Collections and have exclusive access to our latest releases, surprises, and most-wanted restocks. Available to download on iPhone and Android.
+
+image : Download our app on the App Store
+https://app.adjust.com/s0e08fg?campaign=INT&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Feu
+
+image : Download our app on Google Play
+https://app.adjust.com/s0e08fg?campaign=INT&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Feu
+
+==============================
+
+Any Questions? Your Hotline to Paris:
+
+E-mail : bonjour@sezane.com | Whatsapp : +33 6 13 74 29 35
+
+Unsubscribe

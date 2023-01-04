@@ -1,0 +1,21 @@
+{
+	"eslint.debug": false,
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"html"
+	],
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true,
+	},
+	"editor.insertSpaces": false,
+	"files.exclude": {
+		"**/.vercel": true,
+		"sanity/dist": true
+	},
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"stylelint.validate": ["css", "scss"]
+}

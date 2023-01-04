@@ -1,0 +1,97 @@
+---------------------------------
+* [SENDER_NAME] PENSE À VOUS ❤️ *
+---------------------------------
+
+==============================
+
+image : Sezane
+https://www.sezane.com/fr
+
+==============================
+
+image : La liste
+https://www.sezane.com/fr
+
+==============================
+
+{{recipient_name}}, {{sender_name}} a choisi les prochaines pièces de votre vestiaire ! Rendez-vous sur Sézane.com pour les découvrir.
+https://www.sezane.com/fr
+
+==============================
+
+Découvrir (https://www.sezane.com/fr - https://www.sezane.com/fr)
+
+==============================
+
+image : {{products[0].title}}
+https://www.sezane.com/fr
+
+image : No1
+https://www.sezane.com/fr
+
+{{products[0].title}} -  {{products[0].price}}
+https://www.sezane.com/fr
+
+image : {{products[1].title}}
+https://www.sezane.com/fr
+
+image : No2
+https://www.sezane.com/fr
+
+{{products[1].title}} - {{products[1].price}}
+https://www.sezane.com/fr
+
+image : {{products[2].title}}
+https://www.sezane.com/fr
+
+image : No3
+https://www.sezane.com/fr
+
+{{products[2].title}} - {{products[2].price}}
+https://www.sezane.com/fr
+
+==============================
+
+Découvrir (https://www.sezane.com/fr - https://www.sezane.com/fr)
+
+==============================
+
+image : Découvrez aussi
+https://www.sezane.com/fr
+
+==============================
+
+image : Les sacs
+https://www.sezane.com/fr/collection/maroquinerie
+
+image : L'Eau Sézane
+https://www.sezane.com/fr/collection/la-maison
+
+image : Les Hauts
+https://www.sezane.com/fr/collection/hauts
+
+==============================
+
+Découvrir (https://www.sezane.com/fr - https://www.sezane.com/fr)
+
+==============================
+
+TÉLÉCHARGEZ NOTRE APPLICATION
+https://app.adjust.com/4mei2ng?campaign=FR&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Ffr
+
+Suivez vos commandes encore plus facilement sur notre nouvelle Application Sézane - disponible pour iPhone et Android ! 
+https://www.sezane.com/fr
+
+image : Pour iPhone
+https://app.adjust.com/4mei2ng?campaign=FR&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Ffr
+
+image : Pour Android
+https://app.adjust.com/4mei2ng?campaign=FR&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Ffr
+
+==============================
+
+Vous avez des questions ? N'hésitez pas à nous contacter :
+
+E-mail : hello@sezane.com | Whatsapp : +33 6 13 74 29 35
+
+Se désinscrire

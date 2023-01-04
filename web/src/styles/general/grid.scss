@@ -1,0 +1,68 @@
+$color: red;
+$opacity: 0.4;
+$lineWidth: 1px;
+
+@function grid() {
+	@if $gutter-desktop == 0 {
+		@return repeating-linear-gradient(
+			to right,
+			$color $lineWidth,
+			transparent $lineWidth + 1px,
+			transparent span(),
+			$color calc(span() + $lineWidth),
+		);
+	} @else {
+		@return repeating-linear-gradient(
+			to right,
+			$color $lineWidth,
+			transparent $lineWidth,
+			transparent calc(span() - $lineWidth),
+			$color calc(span()),
+			transparent calc(span() + $lineWidth),
+			transparent calc(#{span() + gutter()} - #{$lineWidth}),
+			$color calc(#{span() + gutter()}),
+			transparent calc(#{span() + gutter()} + #{$lineWidth}),
+		);
+	}
+}
+
+@if $debug {
+	body::before {
+		content: '';
+		width: 100%;
+		max-width: $max-width;
+		height: 100%;
+		position: fixed;
+		z-index: 100000;
+		top: 0;
+		left: 50%;
+		pointer-events: none;
+		opacity: $opacity;
+		transform: translateX(-50%);
+		background: grid();
+		border-right: $lineWidth solid rgba($color, $opacity);
+		box-sizing: content-box;
+
+		@include tablet {
+			background: grid();
+		}
+
+		@include desktop {
+			background: grid();
+		}
+	}
+}
+
+.container {
+	max-width: $max-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.padding {
+	padding: 0 span(1);
+
+	@include desktop {
+		padding: 0 span(1);
+	}
+}

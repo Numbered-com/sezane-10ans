@@ -1,0 +1,64 @@
+.h3 {
+	margin-top: 3rem;
+
+	@include desktop {
+		margin-top: 5rem;
+	}
+}
+
+.h3,
+.h4 {
+	margin-bottom: 2.3rem;
+
+	@include desktop {
+		margin-bottom: 2rem;
+	}
+}
+
+.p {
+	margin-bottom: 3rem;
+
+	a {
+		text-decoration: underline;
+		text-decoration-color: rgba($black, 0.4);
+	}
+}
+
+.blockquote {
+}
+
+.p,
+.blockquote {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.fieldset {
+	color: $grey !important;
+	display: block;
+	border: 1px solid rgba($grey, 0.1);
+	padding: 3rem 1.8rem;
+	width: span(10);
+	margin: 5rem 0 0 #{- span(1)};
+
+	@include desktop {
+		padding: 3rem 3.7rem;
+		width: span(7);
+		margin: 0;
+	}
+}
+
+.list {
+	list-style-type: disc;
+	margin-bottom: 2em;
+	padding-left: 1.2em;
+
+	li {
+		margin-bottom: 1em;
+
+		&:last-child  {
+			margin-bottom: 0;
+		}
+	}
+}

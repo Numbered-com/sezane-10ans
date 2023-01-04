@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+		"baseUrl": ".",
+		"paths": {
+			"*": [
+				"./schemas/*"
+			]
+		}
+	},
+	"exclude": [
+		".cache",
+		".vscode",
+		".linaria-cache",
+		"out",
+		"public",
+		"styles",
+		"**/node_modules/*",
+		"misc"
+	]
+}

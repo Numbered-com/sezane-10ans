@@ -1,0 +1,35 @@
+@function span(
+	$span: 1,
+	$config: ()
+) {
+	$context: susy-compile($span, $config);
+	$percentage: su-call('su-span', $context);
+	$ratio: math.div($percentage * (1 - 2 * math.div($margin, $mockup-width)), 1%);
+	$rem: math.div($ratio * strip-unit($mockup-width), 1000) * 1rem;
+
+	// @if  $span != abs($span) {
+	// 	$rem: $rem * -1;
+	// }
+
+	@return $rem;
+}
+
+@function gutter(
+	$gutter: null,
+	$config: ()
+) {
+	$context: susy-compile($gutter, $config, 'context-only');
+	$percentage: su-call('su-gutter', $context);
+	$ratio: math.div($percentage * (1 - 2 * math.div($margin, $mockup-width)), 1%);
+	$rem: math.div($ratio * strip-unit($mockup-width), 1000) * 1rem;
+
+	// @if ($gutter != abs($gutter)) {
+	// 	$rem: $rem * -1;
+	// }
+
+	@if $percentage == 0 {
+		@return 0;
+	} @else {
+		@return $rem;
+	}
+}

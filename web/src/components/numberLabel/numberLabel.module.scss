@@ -1,0 +1,27 @@
+.number {
+	position: relative;
+	margin-bottom: 1.2rem;
+	padding-bottom: 1rem;
+	font-size: 8.6rem;
+	font-weight: 600;
+	line-height: 0.95;
+	letter-spacing: -0.04em;
+
+	@include desktop {
+		font-size: 25rem;
+	}
+
+	&::after {
+		@include line;
+
+		@include desktop {
+			width: span(9);
+		}
+	}
+
+	sub {
+		@include desktop {
+			font-size: 13.5rem;
+		}
+	}
+}

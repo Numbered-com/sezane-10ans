@@ -1,0 +1,17 @@
+# testing
+/coverage
+
+# production
+/build
+.next
+.next/
+/out
+/dist
+
+# pwa
+**/public/workbox-*.js
+**/public/sw.js
+.vercel
+
+# env
+.env.local

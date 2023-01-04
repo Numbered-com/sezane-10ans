@@ -1,0 +1,86 @@
+-------------------------------------------
+* PRÉNOM 2 NOUS A DIT CE QU'IL VOULAIT  ✨ *
+-------------------------------------------
+
+==============================
+https://www.octobre-editions.com/fr
+
+==============================
+https://www.octobre-editions.com/fr
+
+==============================
+
+{{recipient_name}}, {{sender_name}} nous a confié sa liste de Noël !Vous savez ce qu’il vous reste à faire…
+https://www.octobre-editions.com/fr
+
+==============================
+
+Découvrir (https://www.octobre-editions.com/fr - https://www.octobre-editions.com/fr)
+
+==============================
+
+image : {{products[0].title}}
+{{products[0].url}}
+
+image : No1
+{{products[0].url}}
+
+{{products[0].title}} -  {{products[0].price}}
+
+image : {{products[1].title}}
+{{products[1].url}}
+
+image : No2
+{{products[1].url}}
+
+{{products[1].title}} - {{products[1].price}}
+
+image : {{products[2].title}}
+{{products[2].url}}
+
+image : No3
+{{products[2].url}}
+
+{{products[2].title}} - {{products[2].price}}
+
+==============================
+
+Découvrir (https://www.octobre-editions.com/fr - https://www.octobre-editions.com/fr)
+
+==============================
+
+image : idees cadeaux
+https://www.octobre-editions.com/fr
+
+==============================
+
+image : Les sacs
+https://www.octobre-editions.com/fr/collection/accessoires
+
+image : NEW IN
+https://www.octobre-editions.com/fr/giftguide-2022
+
+image : LA MAILLE
+https://www.octobre-editions.com/fr/collection/pulls
+
+==============================
+
+Découvrir (https://www.octobre-editions.com/fr - https://www.octobre-editions.com/fr)
+
+==============================
+
+image : Instagram
+https://www.instagram.com/octobre_editions/
+
+image : Tik Tok
+https://www.tiktok.com/@octobre_editions
+
+image : WhatsApp
+https://api.whatsapp.com/send?phone=%2B33677826483&text&app_absent=0
+
+TÉLÉCHARGER L'APP (https://app.adjust.com/ir42409?campaign=FR&adgroup=NL&fallback=https%3A%2F%2Fwww.octobre-editions.com%2Ffr - https://app.adjust.com/ir42409?campaign=FR&adgroup=NL&fallback=https%3A%2F%2Fwww.octobre-editions.com%2Ffr)
+
+bonjour@octobre-editions.com
+
+Se désinscrire
+https://www.sezane.com/fr

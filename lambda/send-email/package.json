@@ -1,0 +1,19 @@
+{
+  "name": "lambda",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "scripts": {},
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "safari 9",
+    "safari 10"
+  ],
+  "dependencies": {
+    "cloudinary": "^1.25.1",
+    "createsend-node": "^0.8.2"
+  },
+  "devDependencies": {}
+}

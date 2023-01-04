@@ -1,0 +1,95 @@
+------------------------------------------------
+* [SENDER_NAME] HAS BEEN THINKING ABOUT YOU ❤️ *
+------------------------------------------------
+
+==============================
+
+image : Sezane
+https://www.sezane.com/eu
+
+==============================
+
+image : Gift list
+https://www.sezane.com/en
+
+==============================
+
+{{recipient_name}}, {{sender_name}} has chosen this piece for you !Check it out for yourself at Sezane.com
+https://www.sezane.com/en
+
+==============================
+
+Discover (https://www.sezane.com/en - https://www.sezane.com/en)
+
+==============================
+
+image : {{products[0].title}}
+https://www.sezane.com/en
+
+image : No1
+https://www.sezane.com/en
+
+{{products[0].title}} -  {{products[0].price}}
+
+image : {{products[1].title}}
+https://www.sezane.com/en
+
+image : No2
+https://www.sezane.com/en
+
+{{products[1].title}} - {{products[1].price}}
+
+image : {{products[2].title}}
+https://www.sezane.com/en
+
+image : No3
+https://www.sezane.com/en
+
+{{products[2].title}} - {{products[2].price}}
+
+==============================
+
+Discover (https://www.sezane.com/en - https://www.sezane.com/en)
+
+==============================
+
+image : There is more
+https://www.sezane.com/en
+
+==============================
+
+image : Bags
+https://www.sezane.com/en/collection/bags-wallets
+
+image : L'Eau Sézane
+https://www.sezane.com/en/collection/home-collection
+
+image : Tops
+https://www.sezane.com/en/collection/Tops
+
+==============================
+
+Discover (https://www.sezane.com/en - https://www.sezane.com/en)
+
+==============================
+
+DOWNLOAD OUR APP
+https://app.adjust.com/s0e08fg?campaign=INT&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Feu
+
+Your Portal to Paris: be the first to discover our new Collections and have exclusive access to our latest releases, surprises, and most-wanted restocks. Available to download on iPhone and Android.
+
+image : Download our app on the App Store
+https://app.adjust.com/s0e08fg?campaign=INT&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Feu
+
+image : Download our app on Google Play
+https://app.adjust.com/s0e08fg?campaign=INT&adgroup=nl&creative=standard&fallback=https%3A%2F%2Fwww.sezane.com%2Feu
+
+==============================
+
+Complimentary Returns & Delivery to Selected Countries for Purchases over €200
+
+Any Questions? Your Hotline to Paris:
+
+E-mail : bonjour@sezane.com | Whatsapp : +33 6 13 74 29 35
+
+Unsubscribe

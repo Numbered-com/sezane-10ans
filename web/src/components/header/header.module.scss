@@ -1,0 +1,43 @@
+.header {
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 span(1 wide);
+
+	@include mobile {
+		height: 5.7rem;
+		background: $white;
+		border-bottom: 1px solid #e1e1e1;
+	}
+
+	@include desktop {
+		height: 11rem;
+		padding: 0 span(1 wide);
+	}
+
+	a {
+		pointer-events: all;
+
+		svg {
+			display: block;
+		}
+	}
+}
+
+.logo {
+	// height: 5rem;
+	@include mobile {
+		width: 11rem;
+	}
+}
+
+.shop {
+	text-transform: uppercase;
+	font-size: 1.5rem;
+}

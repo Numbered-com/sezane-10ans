@@ -1,0 +1,23 @@
+{
+	"name": "sezane",
+	"private": true,
+	"version": "1.0.0",
+	"description": "",
+	"main": "package.json",
+	"author": "Léo Cheron <leo@cheron.works>",
+	"license": "UNLICENSED",
+	"scripts": {
+		"init": "lerna init",
+		"lerna": "lerna",
+		"install": "lerna bootstrap",
+		"start": "lerna run start --stream",
+		"start:local": "lerna run start:local --stream"
+	},
+	"keywords": [
+		"sanity",
+		"nextjs"
+	],
+	"devDependencies": {
+		"lerna": "^4.0.0"
+	}
+}

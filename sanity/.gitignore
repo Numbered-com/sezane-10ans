@@ -1,0 +1,21 @@
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/public
+/build
+dist
+.next
+.next/
+/out
+
+.DS_Store
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.vercel

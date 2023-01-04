@@ -1,0 +1,42 @@
+// Colors
+$black: #000;
+$dark-grey: #2e2a2a;
+$grey: #888;
+$white: #fff;
+
+$gold: #cbb07b;
+$beige: #fcf9f3;
+
+// Grid
+$columns-mobile: 12;
+$columns-tablet: 12;
+$columns-desktop: 24;
+
+$gutter-mobile: 0.2;
+$gutter-tablet: 0.8;
+$gutter-desktop: 0.8;
+
+// Responsive
+$mobile-margin: 0px;
+$tablet-margin: 0px;
+$desktop-margin: 0px;
+$margin: 0px;
+$max-width: 1680px;
+
+$mobile-mockup-width: 375px;
+$tablet-mockup-width: 758px;
+$desktop-mockup-width: 1440px;
+$mockup-width: $mobile-mockup-width;
+
+$tablet: 768px;
+$desktop: 1010px;
+$large-desktop: 1366px;
+$small-height: 800px;
+
+$header-height-mobile: 12.8rem;
+$header-height-desktop: 15.6rem;
+
+// Fonts
+$font-sans: 'hwygcond', 'Helvetica Neue', arial, sans-serif;
+$font-serif: 'baskervillemtstd', serif;
+$font-serif-title: 'freightsb', serif;

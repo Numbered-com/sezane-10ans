@@ -1,0 +1,54 @@
+.header {
+	text-align: center;
+	margin: 10rem auto 0;
+	width: span(12);
+
+	@include desktop {
+		width: span(20);
+	}
+
+	h1 {
+		padding: 0;
+	}
+
+	.subtitle {
+		display: block;
+
+		@include desktop {
+			margin-top: -1.5rem;
+		}
+	}
+
+	.description {
+		margin-top: 1.6rem;
+
+		@include desktop {
+			margin-top: 0;
+		}
+	}
+}
+
+.footer {
+	padding-bottom: 10rem;
+	background: $white;
+}
+
+.products {
+	margin-right: 2rem;
+	width: 100%;
+	padding: 3.4rem 0 5.6rem;
+
+	@include desktop {
+		padding: span(1 wide) span(1 wide) 12rem;
+	}
+
+	& > ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		@include desktop {
+			justify-content: flex-start;
+		}
+	}
+}

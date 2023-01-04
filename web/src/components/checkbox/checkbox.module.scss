@@ -1,0 +1,73 @@
+.checkbox {
+	position: relative;
+}
+
+.box {
+	position: relative;
+	display: inline-block;
+	border: 0.1rem solid rgba($black, 0.5);
+	width: 1rem;
+	height: 1rem;
+	flex-shrink: 0;
+	background: $white;
+	margin: 0.3rem 0.3rem 0 0;
+
+	.checkmark {
+		position: absolute;
+		z-index: 1;
+		display: inline-block;
+		top: -0.2rem;
+		left: 0.1rem;
+		width: 1.2rem;
+		height: 0.9rem;
+		opacity: 0;
+	}
+}
+
+.label {
+	cursor: pointer;
+	font-family: $font-sans;
+	color: rgba($black, 0.6);
+	user-select: none;
+	display: flex !important;
+	align-items: center;
+	justify-content: flex-start;
+	white-space: pre-wrap;
+	margin-left: 0 !important;
+}
+
+.input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+
+	&:disabled {
+		& + .label {
+			opacity: 0.6;
+		}
+	}
+
+	&:checked {
+		& + .label .checkmark {
+			opacity: 1;
+		}
+	}
+}
+
+.gold {
+	.box {
+		border-color: $gold;
+		width: 1rem;
+		height: 1rem;
+
+		.checkmark {
+			top: -0.3rem;
+			left: 0.1rem;
+			width: 0.9rem;
+			height: 0.7rem;
+		}
+	}
+}

@@ -1,0 +1,85 @@
+-------------------------------------------
+* NAME 1 TOLD US WHAT THEY REALLY WANT ;) *
+-------------------------------------------
+
+==============================
+https://www.octobre-editions.com/{{locale}}
+
+==============================
+https://www.octobre-editions.com/{{locale}}
+
+==============================
+
+{{recipient_name}}, {{sender_name}} shared their list of the pieces they’re secretly hoping to receive this holiday season. You know what to do ;)
+https://www.octobre-editions.com/{{locale}}
+
+==============================
+
+Discover (https://www.octobre-editions.com/{{locale}} - https://www.octobre-editions.com/{{locale}})
+
+==============================
+
+image : {{products[0].title}}
+{{products[0].url}}
+
+image : No1
+{{products[0].url}}
+
+{{products[0].title}} -  {{products[0].price}}
+
+image : {{products[1].title}}
+{{products[1].url}}
+
+image : No2
+{{products[1].url}}
+
+{{products[1].title}} - {{products[1].price}}
+
+image : {{products[2].title}}
+{{products[2].url}}
+
+image : No3
+{{products[2].url}}
+
+{{products[2].title}} - {{products[2].price}}
+
+==============================
+
+Discover (https://www.octobre-editions.com/{{locale}} - https://www.octobre-editions.com/{{locale}})
+
+==============================
+
+image : idees cadeaux
+https://www.octobre-editions.com/{{locale}}
+
+==============================
+
+image : Bags
+https://www.octobre-editions.com/{{locale}}/collection/accessories
+
+image : NEW IN
+https://www.octobre-editions.com/{{locale}}/giftguide-2022
+
+image : KNITWEAR
+https://www.octobre-editions.com/{{locale}}/collection/knitwear
+
+==============================
+
+Discover (https://www.octobre-editions.com/{{locale}} - https://www.octobre-editions.com/{{locale}})
+
+==============================
+
+image : Patti jumper
+https://www.instagram.com/octobre_editions/
+
+image : Jade skirt
+https://www.tiktok.com/@octobre_editions
+
+image : Jade skirt
+https://api.whatsapp.com/send?phone=%2B33677826483&text&app_absent=0
+
+DOWNLOAD THE APP (https://app.adjust.com/9vmrrls?campaign=EU&adgroup=NL&fallback=https%3A%2F%2Fwww.octobre-editions.com%2Fen - https://app.adjust.com/9vmrrls?campaign=EU&adgroup=NL&fallback=https%3A%2F%2Fwww.octobre-editions.com%2Fen)
+
+bonjour@octobre-editions.com
+
+Unsubscribe

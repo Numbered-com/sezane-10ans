@@ -1,0 +1,8 @@
+$columns: $columns-mobile;
+$susy: (
+	columns: susy-repeat($columns),
+	gutters: $gutter-mobile,
+	spread: "narrow",
+	container-spread: "narrow",
+	svg-grid-colors: [transparent, rgba(red, 0.08) ]
+);

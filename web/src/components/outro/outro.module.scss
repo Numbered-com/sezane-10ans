@@ -1,0 +1,240 @@
+.outro {
+	text-align: left;
+	margin: 0 auto;
+	position: fixed;
+	z-index: 101;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $beige;
+	visibility: hidden;
+	background: $beige;
+
+	@media (hover: none) {
+		overflow-y: scroll;
+	}
+
+	// @media (min-width: 1190px) {
+	// 	padding-top: 118px;
+	// }
+
+	.content {
+		position: relative;
+		width: 100%;
+
+		@include desktop {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1.4rem;
+			padding: 0;
+		}
+
+		.close {
+			position: absolute;
+			z-index: 2;
+			top: 12%;
+			left: 10%;
+			color: $beige;
+			text-decoration: underline;
+			text-decoration-color: $beige;
+			font-family: $font-serif;
+
+			@include desktop {
+				height: 5.2rem;
+				top: 4rem;
+				left: calc(50% + #{span(1 wide)});
+				color: rgba($black, 0.5);
+				text-decoration-color: rgba($black, 0.3);
+			}
+		}
+	}
+
+	.figure {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 50%;
+
+		@include desktop {
+			position: relative;
+			width: 50%;
+			height: 100%;
+		}
+
+		.image {
+			width: 100%;
+			height: 100%;
+
+			@include desktop {
+				position: absolute;
+			}
+
+			& > span {
+				height: 100% !important;
+			}
+		}
+
+
+		.titles {
+			z-index: 1;
+			width: 100%;
+			padding: 8rem 0;
+
+			@include desktop {
+				padding-bottom: 20rem;
+			}
+
+			.title {
+				font-size: 15rem !important;
+			}
+		}
+	}
+
+	.description {
+		margin-bottom: 2.7rem;
+		text-align: center;
+	}
+
+	.form {
+		margin-top: 3rem;
+		width: 100%;
+		height: 50%;
+		padding: 7%;
+
+		@include desktop {
+			width: 50%;
+			height: auto;
+			padding: 0;
+		}
+
+		.message {
+			margin: 0 auto;
+
+			@include desktop {
+				max-width: 423px;
+			}
+
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+				margin-bottom: 3rem;
+			}
+		}
+
+		.formContent {
+			display: flex;
+			margin: 0 auto;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			max-width: 21rem;
+
+			@include desktop {
+				max-width: 35rem;
+			}
+		}
+
+		h2 {
+			max-width: 70rem;
+			margin: 2.6rem auto 2.6rem;
+			letter-spacing: 0.01em;
+			text-align: center;
+			font-size: 2.7rem !important;
+
+			@include desktop {
+				font-size: 5.4rem !important;
+				margin-bottom: 3.6rem;
+			}
+		}
+
+		h3 {
+			font-size: 1.8rem;
+		}
+
+		.input {
+			margin-bottom: 2rem;
+
+
+			&:last-child {
+				margin-bottom: 2.6rem;
+			}
+
+			@include desktop {
+				margin-bottom: 3rem;
+
+				&:last-child {
+					margin-bottom: 2rem;
+				}
+			}
+		}
+
+		.buttons {
+			text-align: left;
+
+			p {
+				@include desktop {
+					max-width: 18rem;
+				}
+			}
+
+			.button {
+				width: 50%;
+				margin: 0 auto;
+			}
+		}
+
+		.accordion {
+			margin: 0 auto 1.6rem;
+
+			@include desktop {
+				margin: auto;
+			}
+		}
+	}
+
+	.outroHelp {
+		font-family: $font-serif;
+		text-align: center;
+	}
+
+	:global {
+		.accordion__button {
+			width: 100%;
+			padding: 1.2rem 0;
+			text-align: left;
+			border: none;
+
+			h3 {
+				cursor: pointer;
+			}
+		}
+
+		.accordion__panel {
+			overflow: hidden;
+			transition: height 0.6s $quart-out;
+
+			@include desktop {
+				height: 26rem;
+			}
+
+			&[hidden] {
+				display: block;
+				height: 0;
+			}
+		}
+
+		.accordion__button {
+			opacity: 0.5;
+			transition: opacity 0.5s $quart-out;
+
+			&[aria-expanded='true'] {
+				opacity: 1;
+			}
+		}
+	}
+}

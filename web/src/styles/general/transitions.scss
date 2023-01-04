@@ -1,0 +1,21 @@
+.t {
+	&--ty {
+		transition: transform 2s $expo-out;
+
+		&.is-out {
+			transition: none;
+			transition-delay: 0s;
+
+			&--up {
+				transform: translate3d(0,-150px,0);
+			}
+			&--down {
+				transform: translate3d(0,150px,0);
+			}
+		}
+
+		&.is-in {
+			transform: none;
+		}
+	}
+}

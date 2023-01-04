@@ -1,0 +1,13 @@
+@mixin hover($active-fallback: true) {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+
+	@if $active-fallback {
+		&:active {
+			@content;
+		}
+	}
+}

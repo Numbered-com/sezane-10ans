@@ -1,0 +1,198 @@
+.h,
+%h {
+	padding-right: 0.04em;
+	line-height: 1;
+	text-transform: uppercase;
+
+	&m {
+		&-1 {
+			@extend %h;
+
+			font-size: 7.8rem;
+			letter-spacing: 0.025em;
+			color: $black;
+			font-family: $font-serif-title;
+			line-height: 0.8;
+
+			@include desktop {
+				font-size: 15rem;
+			}
+		}
+
+		&-1b {
+			@extend %h;
+
+			font-size: 6.7rem;
+			letter-spacing: 0.025em;
+			color: $black;
+			font-family: $font-serif-title;
+			line-height: 0.8;
+
+			@include desktop {
+				font-size: 13rem;
+			}
+		}
+
+		&-2 {
+			@extend %h;
+
+			font-size: 2.7rem;
+			font-family: $font-serif-title;
+			line-height: 1;
+
+			@include desktop {
+				font-size: 4rem;
+			}
+		}
+
+		&-3 {
+			@extend %h;
+
+			letter-spacing: 0.04em;
+			font-size: 2rem;
+		}
+
+		&-3a {
+			@extend %h;
+
+			font-size: 1rem;
+
+			@include desktop {
+				font-size: 1.4rem;
+			}
+		}
+
+		&-4 {
+			@extend %h;
+
+			letter-spacing: 0.04em;
+			font-size: 1.1rem;
+			text-transform: none;
+		}
+
+		&-5 {
+			@extend %h;
+
+			font-size: 1.2rem;
+			text-transform: none;
+		}
+	}
+
+	&d {
+		&-1 {
+			@extend %h;
+
+			@include desktop {
+				font-size: 21rem;
+			}
+		}
+
+		&-3 {
+			@extend %h;
+
+			@include desktop {
+				font-size: 1.8rem;
+			}
+		}
+
+		&-4 {
+			@extend %h;
+
+			font-family: $font-serif-title;
+			font-size: 1.2rem;
+
+			@include desktop {
+				font-size: 1.5rem;
+			}
+		}
+
+		&-5 {
+			@extend %h;
+
+			font-family: $font-serif-title;
+			font-size: 1.2rem;
+			text-transform: none;
+		}
+	}
+}
+
+.p,
+%p {
+	font-family: $font-serif;
+	line-height: 140%;
+
+	&m {
+		&-xxs {
+			@extend %p;
+
+			font-size: 1.1rem;
+			line-height: 1.4;
+			font-family: $font-serif-title;
+			color: rgba($black, 0.6);
+		}
+
+		&-xs {
+			@extend %p;
+
+			font-size: 1.2rem;
+			font-weight: 600;
+			line-height: 1.1;
+			letter-spacing: -0.04em;
+		}
+
+		&-s {
+			@extend %p;
+
+			font-size: 1.4rem;
+			font-weight: 600;
+			letter-spacing: -0.04em;
+			line-height: 140%;
+		}
+
+		&-m {
+			@extend %p;
+
+			font-size: 1.4rem;
+		}
+	}
+
+	&d {
+		&-s {
+			@extend %p;
+
+			font-size: 1.1rem;
+		}
+
+		&-m {
+			@extend %p;
+
+			font-size: 1.2rem;
+
+			@include desktop {
+				font-size: 1.5rem;
+			}
+		}
+
+		&-md {
+			@extend %p;
+
+			font-size: 1.5rem;
+			line-height: 1.3;
+			font-family: $font-serif;
+
+			@include desktop {
+				font-size: 1.7rem;
+			}
+		}
+
+		&-l {
+			@extend %p;
+
+			font-size: 1.2rem;
+
+			@include desktop {
+				font-size: 2.1rem;
+			}
+		}
+	}
+}

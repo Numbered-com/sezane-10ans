@@ -1,0 +1,38 @@
+.wrapper {
+	position: relative;
+}
+
+.input {
+	appearance: none;
+	border: none;
+	border-radius: 0;
+	line-height: 1.8;
+	font-size: 1.2rem;
+	font-family: $font-serif;
+	width: 100%;
+	border-bottom: 1px solid rgba($black, 0.25);
+	transition: border-color 1s $expo-out;
+	background: none;
+
+	&:focus {
+		outline: none;
+		border-color: rgba($black, 0.6);
+	}
+
+	&::placeholder {
+		color: rgba($black, 0.6);
+	}
+
+	&:not(:placeholder-shown) {
+		border-color: rgba($black, 0.6);
+	}
+}
+
+.required {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -0.5em;
+	pointer-events: none;
+	color: rgba($black, 0.6);
+}

@@ -1,0 +1,69 @@
+@mixin mobile($bounds: "max") {
+	$width: if($bounds == "min", $desktop, $desktop - 1px);
+
+	@media (#{$bounds}-width: $width) {
+		@content;
+	}
+}
+
+@mixin mobile-landscape($bounds: "max") {
+	@media (#{$bounds}-width: $desktop) and (#{$bounds}-height: 540px) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin tablet($bounds: "min") {
+	$config: (
+		columns: susy-repeat($columns-tablet),
+		gutters: $gutter-tablet
+	);
+	$susy-saved: $susy;
+	$susy: map-merge($susy, $config) !global;
+	$mockup-width: $tablet-mockup-width !global;
+	$margin: $tablet-margin !global;
+	$width: if($bounds == "min", $tablet, $tablet - 1px);
+
+	@media (#{$bounds}-width: $width) {
+		@content;
+	}
+
+	@include restore-default($susy-saved);
+}
+
+@mixin desktop($bounds: "min") {
+	$config: (
+		columns: susy-repeat($columns-desktop),
+		gutters: $gutter-desktop
+	);
+	$susy-saved: $susy;
+	$susy: map-merge($susy, $config) !global;
+	$mockup-width: $desktop-mockup-width !global;
+	$margin: $desktop-margin !global;
+	$width: if($bounds == "min", $desktop, $desktop - 1px);
+
+	@media (#{$bounds}-width: $width) {
+		@content;
+	}
+
+	@include restore-default($susy-saved);
+}
+
+@mixin large-desktop($bounds: "min") {
+	$mockup-width: $desktop-mockup-width !global;
+	$margin: $desktop-margin !global;
+
+	@media (#{$bounds}-width: $large-desktop) {
+		@content;
+	}
+
+	@include restore-default();
+}
+
+@mixin restore-default($susy) {
+	$mockup-width: $mobile-mockup-width !global;
+	$margin: $mobile-margin !global;
+
+	@if $susy {
+		$susy: $susy !global;
+	}
+}

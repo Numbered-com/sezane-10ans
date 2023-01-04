@@ -1,0 +1,60 @@
+.select {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid currentColor;
+	background: none;
+	appearance: none;
+	font-family: $font-sans;
+	outline: none;
+	color: currentColor;
+
+	@include variants;
+
+	&.transparent {
+		color: rgba($black, 0.5);
+
+		&.isSelected {
+			color: $black;
+		}
+	}
+
+	select {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		font-size: 1.8rem;
+		appearance: none;
+		border-radius: 0;
+		border: none;
+	}
+
+	.value {
+		position: relative;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		cursor: default;
+		line-height: 1.8;
+
+		@include mobile {
+			pointer-events: none;
+		}
+	}
+
+	svg {
+		position: absolute;
+		z-index: 0;
+		width: 1.2rem;
+		right: 0;
+		fill: currentColor;
+	}
+}

@@ -1,0 +1,38 @@
+a {
+	text-decoration: none;
+	color: currentColor;
+
+	&:visited {
+		color: currentColor;
+	}
+}
+
+.a {
+	&--underlined {
+		display: inline-block;
+		position: relative;
+		overflow: hidden;
+
+		&::after {
+			@include line(currentColor);
+
+			pointer-events: none;
+			transform: translate3d(calc(-100% - 1px), 0, 0);
+			transition: transform 0.6s $quart-inout;
+		}
+
+		&.isActive {
+			&::after {
+				transform: none;
+				transition-timing-function: $expo-out;
+			}
+		}
+
+		@include hover {
+			&::after {
+				transform: none;
+				transition-timing-function: $expo-out;
+			}
+		}
+	}
+}
