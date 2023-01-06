@@ -1,5 +1,5 @@
 import {useSpring, animated} from '@react-spring/web'
-import Intro from 'components/intro/Intro'
+import Intro from 'components/registerForm/RegisterForm'
 import MiniCart from 'components/miniCart/MiniCart'
 import Outro from 'components/outro/Outro'
 import ProductCard, {ProductCardVariant} from 'components/productCard/ProductCard'

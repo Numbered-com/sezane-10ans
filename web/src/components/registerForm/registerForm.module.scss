@@ -1,0 +1,147 @@
+.registerForm {
+	text-align: center;
+	z-index: 100;
+	width: 100%;
+	background: $beige;
+
+	@include desktop {
+		display: flex;
+		min-height: 100vh;
+		// align-items: center;
+	}
+
+	.card {
+		position: relative;
+		z-index: 1;
+		background: $beige;
+		margin-top: 9rem;
+		padding: 10rem 0;
+
+		& > span {
+			margin-bottom: 2rem;
+		}
+
+		@include desktop {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin-top: 0;
+			width: 50%;
+		}
+	}
+
+	.content {
+		padding: 3rem span(1) 2rem;
+
+		@include desktop {
+			padding: 4rem 6rem 0;
+		}
+	}
+
+	// Script Image
+	.message {
+		margin: 0 auto;
+		max-height: 67px;
+		display: block;
+		width: auto;
+
+		@include desktop {
+			max-height: 91px;
+		}
+	}
+
+	.description {
+		margin: 2.1rem auto 1.4rem;
+
+		@include desktop {
+			max-width: 37rem;
+		}
+	}
+
+	.form {
+		margin: 1.4rem auto 2rem;
+
+		@include desktop {
+			width: span(4 wider);
+			margin: 1rem auto 0;
+		}
+
+		.input {
+			margin-bottom: 1.7rem;
+
+			@include desktop {
+				margin-bottom: 2.2rem;
+			}
+		}
+
+		.invitation {
+			margin-bottom: 1rem;
+
+			@include desktop {
+				margin-bottom: 1rem;
+			}
+		}
+
+		.button {
+			margin: 2.6rem auto 0.7rem;
+
+			@include desktop {
+				margin-top: 2.4rem;
+			}
+		}
+
+		.checkbox {
+			text-align: left;
+
+			p {
+				margin-left: 1rem;
+				color: rgba($black, 0.6);
+			}
+		}
+	}
+
+	.legals {
+		font-size: 1rem;
+		color: rgba($black, 0.6);
+
+		@include desktop {
+			font-size: 1.1rem;
+		}
+	}
+
+	.titleSplit {
+		position: relative;
+		top: 0.5rem;
+
+		@include desktop {
+			top: 1.05rem;
+		}
+	}
+
+	.imageWrapper {
+		position: relative;
+
+		@include desktop {
+			width: 50%;
+			height: 100%;
+		}
+	}
+
+	.background {
+		position: relative;
+
+		@include desktop {
+			width: 50%;
+		}
+	}
+}
+
+@keyframes translate {
+	0% {
+		transform: translateY(0%) translateZ(0);
+	}
+
+	100% {
+		transform: translateY(-50%) translateZ(0);
+	}
+}

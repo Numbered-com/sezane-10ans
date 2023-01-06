@@ -1,8 +1,18 @@
 @font-face {
 	font-family: hwygcond;
 	src:
-		url('/la-liste/fonts/hwygcond-web.woff2') format('woff2'),
-		url('/la-liste/fonts/hwygcond-web.woff') format('woff');
+		url('/10ans/fonts/hwygcond-web.woff2') format('woff2'),
+		url('/10ans/fonts/hwygcond-web.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: oswald;
+	src:
+		url('/10ans/fonts/oswald-variablefont_wght-web.woff2') format('woff2'),
+		url('/10ans/fonts/oswald-variablefont_wght-web.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -11,18 +21,28 @@
 @font-face {
 	font-family: baskervillemtstd;
 	src:
-		url('/la-liste/fonts/baskervillemtstd-regular-web.woff2') format('woff2'),
-		url('/la-liste/fonts/baskervillemtstd-regular-web.woff') format('woff');
+		url('/10ans/fonts/baskervillemtstd-regular-web.woff2') format('woff2'),
+		url('/10ans/fonts/baskervillemtstd-regular-web.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
+	font-family: baskervillemtstd;
+	src:
+		url('/10ans/fonts/baskervillemtstd-italic-web.woff2') format('woff2'),
+		url('/10ans/fonts/baskervillemtstd-italic-web.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
 	font-family: freightsb;
 	src:
-		url('/la-liste/fonts/freight-sb.woff2') format('woff2'),
-		url('/la-liste/fonts/freight-sb.woff') format('woff');
+		url('/10ans/fonts/didot-htf-m24-medium-web.woff') format('woff2'),
+		url('/10ans/fonts/didot-htf-m24-medium-web.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
