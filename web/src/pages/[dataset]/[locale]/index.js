@@ -1,53 +1,46 @@
 import {useSpring, animated} from '@react-spring/web'
-import Intro from 'components/registerForm/RegisterForm'
-import MiniCart from 'components/miniCart/MiniCart'
+import RegisterForm from 'components/registerForm/RegisterForm'
 import Outro from 'components/outro/Outro'
-import ProductCard, {ProductCardVariant} from 'components/productCard/ProductCard'
-import Thanks from 'components/thanks/Thanks'
-import {expoInOut, expoOut} from 'eases'
+import {quartInOut} from 'eases'
 import useWindowResize from 'hooks/useWindowResize'
-import {getHome, getProducts, setLocale} from 'lib/api'
+import {getHome, setLocale} from 'lib/api'
 import {useRef} from 'react'
 import {cn} from 'utils/classnames'
 import styles from '../../index.module.scss'
+import {CloudinaryImage} from 'components/image/Image'
 
 const Home = (props) => {
-	const {title, introOptin, subtitleIntro, subtitleOutro, description, products, outroImage, thanksMessage, thanksImage, thanksCtaUrl, thanksCtaLabel, outroSubtitle, outroHelp} = props
+	const {
+		title,
+		subtitleIntro,
+		heroImage,
+		formSurtitle,
+		formTitle,
+		formDescription,
+		formOptin1,
+		formOptin2,
+		formImage,
+		thanksTitle,
+		thanksImage,
+		thanksDescription,
+		thanksOptin,
+		thanksCtaLabel,
+	} = props
 	const iframeRef = useRef(null)
 	const [style, api] = useSpring(() => ({
 		from: {
-			mainPosition: 'fixed',
-			mainY: 'translate3d(0,100vh,0)',
-			cartY: 'translate3d(0,150%,0)',
+			// mainPosition: 'fixed',
+			// mainY: 'translate3d(0,100vh,0)',
+
 			outroY: 'translate3d(0,100%,0)',
 			outroVisibility: 'hidden',
-			thanksY: 'translate3d(0,100%,0)',
-			thanksVisibility: 'hidden',
 		},
 		config: (value) => ({
-			duration: value === 'cartY' ? 1800 : 2000,
-			easing: value === 'cartY' ? expoOut : expoInOut,
+			duration: 1200,
+			easing: quartInOut,
 			restVelocity: 0.001,
 		}),
 	}))
-
-	const handleHide = () => {
-		api.start({
-			mainPosition: '',
-			mainY: 'translate3d(0,0vh,0)',
-			cartY: 'translate3d(0,0%,0)',
-			delay: (value) => {
-				if (value === 'cartY') { return 800 } else { return 0 }
-			},
-		})
-	}
-
-	const handleMiniCartSubmit = () => {
-		api.start({
-			outroVisibility: 'inherit',
-			outroY: 'translate3d(0,0%,0)',
-		})
-	}
 
 	const handleCancel = () => {
 		api.start({
@@ -57,8 +50,8 @@ const Home = (props) => {
 
 	const handleSubmit = () => {
 		api.start({
-			thanksVisibility: 'inherit',
-			thanksY: 'translate3d(0,0%,0)',
+			outroVisibility: 'inherit',
+			outroY: 'translate3d(0,0%,0)',
 		})
 	}
 
@@ -82,20 +75,18 @@ const Home = (props) => {
 
 	return (
 		<>
-			<Intro {...props} subtitle={subtitleIntro} onHide={handleHide} />
 			<animated.div className={styles.main} style={{transform: style.mainY, position: style.mainPosition}}>
-				<main className={cn('container', styles.main)}>
+				<main className={styles.main}>
 					<header className={styles.header}>
-						<h1 className='hm-1 hd-1'>{title}</h1>
-						<p className={cn('pm-m pd-m', styles.description)}>{description}</p>
+						<figure>
+							<CloudinaryImage src={heroImage} width={1440} height={1473} className={styles.background} />
+							<figcaption className={styles.caption}>
+								<h1 className='hm-1 hd-1'>{title}</h1>
+								{subtitleIntro && <p className={cn('pm-m pd-l upper', styles.description)}>{subtitleIntro}</p>}
+							</figcaption>
+						</figure>
 					</header>
-					<section className={styles.products}>
-						<ul>
-							{products.map((product, i) => (
-								<ProductCard key={`${product._id}${i}`} {...product} variant={ProductCardVariant.large} />
-							))}
-						</ul>
-					</section>
+					<RegisterForm {...props} onSubmit={handleSubmit} />
 					{process.env.NODE_ENV === 'production' && (
 						<footer className={styles.footer}>
 							<iframe
@@ -108,9 +99,8 @@ const Home = (props) => {
 					)}
 				</main>
 			</animated.div>
-			<Outro optin={introOptin} subtitle={subtitleOutro} image={outroImage} onSubmit={handleSubmit} onCancel={handleCancel} outroHelp={outroHelp} outroSubtitle={outroSubtitle} style={{transform: style.outroY, visibility: style.outroVisibility}} />
-			<Thanks message={thanksMessage} thanksCtaLabel={thanksCtaLabel} image={thanksImage} style={{transform: style.thanksY, visibility: style.thanksVisibility}} ctaUrl={thanksCtaUrl} />
-			<MiniCart style={{transform: style.cartY}} onSubmit={handleMiniCartSubmit} />
+			<Outro title={thanksTitle} description={thanksDescription} image={thanksImage} onCancel={handleCancel} optin={thanksOptin} style={{transform: style.outroY, visibility: style.outroVisibility}} />
+			{/* <Thanks message={thanksMessage} thanksCtaLabel={thanksCtaLabel} image={thanksImage} style={{transform: style.thanksY, visibility: style.thanksVisibility}} ctaUrl={thanksCtaUrl} /> */}
 		</>
 	)
 }
@@ -128,7 +118,6 @@ export async function getStaticProps (props) {
 
 	const [home, products] = await Promise.all([
 		getHome(preview, params.dataset),
-		getProducts(preview, params.dataset),
 	])
 
 	return {

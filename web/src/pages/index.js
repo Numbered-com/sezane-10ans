@@ -1,7 +1,7 @@
 import {useSpring, animated} from '@react-spring/web'
 import RegisterForm from 'components/registerForm/RegisterForm'
 import Outro from 'components/outro/Outro'
-import {expoInOut, expoOut, quartInOut} from 'eases'
+import {quartInOut} from 'eases'
 import useWindowResize from 'hooks/useWindowResize'
 import {getHome, setLocale} from 'lib/api'
 import {useRef} from 'react'
