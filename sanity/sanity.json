@@ -1,8 +1,8 @@
 {
   "root": true,
   "api": {
-    "projectId": "mj1jh3f2",
-    "dataset": "sezane"
+    "projectId": "qoj23imy",
+    "dataset": "production"
   },
   "project": {
     "name": "Sezane"
@@ -14,7 +14,6 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "@sanity/language-filter",
-    "order-documents",
     "tabs",
     "color-picker"
   ],
@@ -24,16 +23,8 @@
       "title": "Sezane",
       "default": true,
       "api": {
-        "projectId": "mj1jh3f2",
-        "dataset": "sezane"
-      }
-    },
-    {
-      "name": "octobre",
-      "title": "Octobre",
-      "api": {
-        "projectId": "mj1jh3f2",
-        "dataset": "octobre"
+        "projectId": "qoj23imy",
+        "dataset": "production"
       }
     }
   ],

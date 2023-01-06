@@ -32,7 +32,7 @@ module.exports = withPlugins(
 		// 	defaultLocale: 'en-us',
 		// 	localeDetection: false,
 		// },
-		assetPrefix: process.env.NEXT_PUBLIC_BUILD ? `/la-liste/${process.env.NEXT_PUBLIC_LOCALE.replace('_', '-')}` : '',
+		assetPrefix: process.env.NEXT_PUBLIC_BUILD ? `/10ans/${process.env.NEXT_PUBLIC_LOCALE.replace('_', '-')}` : '',
 		sassOptions: {
 			prependData: `
 				@use "sass:math";

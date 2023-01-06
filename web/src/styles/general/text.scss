@@ -1,6 +1,5 @@
 .h,
 %h {
-	padding-right: 0.04em;
 	line-height: 1;
 	text-transform: uppercase;
 
@@ -10,7 +9,7 @@
 
 			font-size: 7.8rem;
 			letter-spacing: 0.025em;
-			color: $black;
+			color: $white;
 			font-family: $font-serif-title;
 			line-height: 0.8;
 
@@ -19,29 +18,16 @@
 			}
 		}
 
-		&-1b {
-			@extend %h;
-
-			font-size: 6.7rem;
-			letter-spacing: 0.025em;
-			color: $black;
-			font-family: $font-serif-title;
-			line-height: 0.8;
-
-			@include desktop {
-				font-size: 13rem;
-			}
-		}
-
 		&-2 {
 			@extend %h;
 
-			font-size: 2.7rem;
+			font-size: 5.4rem;
 			font-family: $font-serif-title;
 			line-height: 1;
+			letter-spacing: 0.05em;
 
 			@include desktop {
-				font-size: 4rem;
+				font-size: 10.7rem;
 			}
 		}
 
@@ -83,7 +69,9 @@
 			@extend %h;
 
 			@include desktop {
-				font-size: 21rem;
+				letter-spacing: 0.05em;
+				padding-right: 0.04em;
+				font-size: 24.8rem;
 			}
 		}
 
@@ -120,6 +108,7 @@
 %p {
 	font-family: $font-serif;
 	line-height: 140%;
+	white-space: pre-wrap;
 
 	&m {
 		&-xxs {
@@ -188,11 +177,22 @@
 		&-l {
 			@extend %p;
 
-			font-size: 1.2rem;
+			font-family: $font-oswald;
+			text-transform: uppercase;
+			font-size: 1.4rem;
+			font-weight: 600;
 
 			@include desktop {
-				font-size: 2.1rem;
+				font-size: 1.9rem;
 			}
 		}
 	}
+}
+
+.italic {
+	font-style: italic;
+}
+
+.upper {
+	font-style: uppercase;
 }

@@ -11,7 +11,7 @@ import {
 } from 'utils/classnames'
 import styles from './image.module.scss'
 
-export const Image = forwardRef(({src, width, height, mobileWidth = 375, desktopWidth = 1440, alt = '', layout = 'responsive', className = null, as = null, style = null, loader = undefined, loading = 'lazy', priority = false}, ref) => {
+export const Image = forwardRef(({src, width, height, mobileWidth = 375, desktopWidth = 1440, alt = '', layout = 'responsive', className = null, as = null, style = null, loader = undefined, loading = 'lazy', priority = false, objectFit}, ref) => {
 	const [isLoaded, setIsLoaded] = useState(priority)
 	const mobileMockupWidth = 375
 	const desktopMockupWidth = 1440
@@ -33,6 +33,7 @@ export const Image = forwardRef(({src, width, height, mobileWidth = 375, desktop
 				width={width}
 				height={height}
 				loader={loader}
+				objectFit={objectFit}
 				// loading={loading}
 				priority={priority}
 				lazyBoundary='50%' />
@@ -83,7 +84,7 @@ export const Image = forwardRef(({src, width, height, mobileWidth = 375, desktop
 // 	)
 // }
 
-export const CloudinaryImage = forwardRef(({src, width, height, alt = '', mobileWidth = 375, desktopWidth = 1440, layout = 'responsive', className = null, as = null, style = null, loading = 'lazy', priority = false}, ref) => {
+export const CloudinaryImage = forwardRef(({src, width, height, alt = '', mobileWidth = 375, desktopWidth = 1440, layout = 'responsive', className = null, as = null, style = null, loading = 'lazy', priority = false, objectFit, ...rest}, ref) => {
 	const aspectRatio = width / height
 
 	const cloudinaryLoader = ({width, quality}) => {
@@ -104,7 +105,8 @@ export const CloudinaryImage = forwardRef(({src, width, height, alt = '', mobile
 			className={className}
 			style={style}
 			priority={priority}
-			// loading={loading}
-			alt={alt} />
+			objectFit={objectFit}
+			alt={alt}
+			{...rest} />
 	)
 })

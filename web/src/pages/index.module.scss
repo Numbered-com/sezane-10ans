@@ -1,11 +1,6 @@
 .header {
+	position: relative;
 	text-align: center;
-	margin: 10rem auto 0;
-	width: span(12);
-
-	@include desktop {
-		width: span(20);
-	}
 
 	h1 {
 		padding: 0;
@@ -21,9 +16,24 @@
 
 	.description {
 		margin-top: 1.6rem;
+	}
+
+	.caption {
+		position: absolute;
+		z-index: 1;
+		bottom: 1.5rem;
+		margin-top: 1.5rem;
+		color: $white;
 
 		@include desktop {
-			margin-top: 0;
+			bottom: 6rem;
+			padding: 0 span(2);
+		}
+
+		p {
+			@include desktop {
+				padding: 0 span(4);
+			}
 		}
 	}
 }

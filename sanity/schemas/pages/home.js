@@ -17,45 +17,42 @@ export default {
 			validation: Rule => Rule.required(),
 		},
 		{
-			name: 'subtitleList',
-			type: 'localeString',
-			validation: Rule => Rule.required(),
-		},
-		{
-			name: 'subtitleOutro',
-			type: 'localeString',
-			validation: Rule => Rule.required(),
-		},
-		{
-			name: 'introDescription',
-			type: 'localeText',
-		},
-		{
-			name: 'introOptin',
-			type: 'localeText',
-		},
-		{
-			name: 'introLegals',
-			type: 'localeBlockContentParagraph',
-		},
-		{
-			name: 'description',
-			title: 'Grid description',
-			type: 'localeText',
-		},
-		{
-			name: 'outroImage',
-			title: 'Cloudinary outro image',
+			name: 'heroImage',
+			title: 'Cloudinary intro image',
 			type: 'url',
 			validation: Rule => Rule.required(),
 		},
-		// {
-		// 	name: 'outroSubtitle',
-		// 	type: 'localeText',
-		// },
 		{
-			name: 'outroHelp',
+			name: 'formSurtitle',
+			type: 'localeString',
+		},
+		{
+			name: 'formTitle',
+			type: 'localeString',
+		},
+		{
+			name: 'formDescription',
 			type: 'localeText',
+		},
+		{
+			name: 'formOptin1',
+			type: 'localeBlockContent',
+		},
+		{
+			name: 'formOptin2',
+			type: 'localeBlockContent',
+		},
+		{
+			name: 'formImage',
+			title: 'Cloudinary form image',
+			type: 'url',
+			validation: Rule => Rule.required(),
+		},
+		{
+			name: 'thanksTitle',
+			title: 'Thanks title',
+			type: 'localeString',
+			validation: Rule => Rule.required(),
 		},
 		{
 			name: 'thanksImage',
@@ -64,17 +61,16 @@ export default {
 			validation: Rule => Rule.required(),
 		},
 		{
-			name: 'thanksMessage',
+			name: 'thanksDescription',
 			type: 'localeText',
 			validation: Rule => Rule.required(),
 		},
 		{
-			name: 'thanksCtaLabel',
-			type: 'localeString',
-			validation: Rule => Rule.required(),
+			name: 'thanksOptin',
+			type: 'localeBlockContent',
 		},
 		{
-			name: 'thanksCtaUrl',
+			name: 'thanksCtaLabel',
 			type: 'localeString',
 			validation: Rule => Rule.required(),
 		},

@@ -50,22 +50,22 @@ export default () =>
 
 			S.divider(),
 
-			S.listItem()
-				.title('Products')
-				.icon(FiShoppingCart)
-				.child(
-					S.documentTypeList('product')
-						.title('Products'),
-				),
-			S.listItem()
-				.title('Product Sizes')
-				.icon(FaTags)
-				.child(
-					S.documentTypeList('size')
-						.title('Product Sizes'),
-				),
+			// S.listItem()
+			// 	.title('Products')
+			// 	.icon(FiShoppingCart)
+			// 	.child(
+			// 		S.documentTypeList('product')
+			// 			.title('Products'),
+			// 	),
+			// S.listItem()
+			// 	.title('Product Sizes')
+			// 	.icon(FaTags)
+			// 	.child(
+			// 		S.documentTypeList('size')
+			// 			.title('Product Sizes'),
+			// 	),
 
-			S.divider(),
+			// S.divider(),
 
 			S.listItem()
 				.title('Localisation')
