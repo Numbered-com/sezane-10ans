@@ -10,6 +10,7 @@ import {CloudinaryImage} from 'components/image/Image'
 import Key from 'svgs/key.svg'
 import {style, timeline} from 'motion'
 import {ParallaxMedia} from 'components/parallaxMedia/ParallaxMedia'
+import useWindowSize from 'hooks/useWindowSize'
 
 const Home = (props) => {
 	const {
@@ -44,9 +45,11 @@ const Home = (props) => {
 	})
 
 	useEffect(() => {
+		// console.log('index.js', windowSize.width)
+		const ratio = 5.9 / 144
 		tl.current = timeline([
-			[keyRef.current, {scale: [1, 70]}, {duration: 1}],
-			[keyRef.current, {opacity: [1, 0]}, {duration: 0.1, at: 0.9}],
+			[keyRef.current, {scale: [1, 37]}, {duration: 1}],
+			// [keyRef.current, {opacity: [1, 0]}, {duration: 0.1, at: 0.9}],
 		], {duration: 1, easing: 'linear'})
 		tl.current.pause()
 	}, [])
@@ -72,10 +75,12 @@ const Home = (props) => {
 	return (
 		<>
 			<div className={styles.main} style={{transform: style.mainY, position: style.mainPosition}}>
-				<aside aria-hidden className={styles.overlay} ref={keyRef}>
-					<i />
-					<Key />
-					<i />
+				<aside aria-hidden className={styles.overlay}>
+					<div ref={keyRef}>
+						<i />
+						<Key />
+						<i />
+					</div>
 				</aside>
 				<main className={styles.main} ref={mainRef}>
 					<header className={styles.header}>
@@ -90,8 +95,10 @@ const Home = (props) => {
 								<CloudinaryImage src={heroImage} width={1280} height={1834} className={styles.background} priority />
 							</ParallaxMedia>
 							<figcaption className={styles.caption}>
-								<h1 className='hm-1 hd-1'>{title}</h1>
-								{subtitleIntro && <p className={cn('pm-l pd-l upper', styles.description)}>{subtitleIntro}</p>}
+								<div className='container'>
+									<h1 className='hm-1 hd-1'>{title}</h1>
+									{subtitleIntro && <p className={cn('pm-l pd-l upper', styles.description)}>{subtitleIntro}</p>}
+								</div>
 							</figcaption>
 						</figure>
 					</header>

@@ -41,7 +41,7 @@ module.exports = withPlugins(
 			`,
 		},
 		images: {
-			deviceSizes: [1, 640, 960, 1200, 1920],
+			deviceSizes: [640, 960, 1200, 1920],
 			imageSizes: [48, 96, 160, 320],
 			domains: ['cdn.sanity.io'],
 			loader: 'custom',
