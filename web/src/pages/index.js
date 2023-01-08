@@ -1,16 +1,14 @@
-import {useSpring} from '@react-spring/web'
 import RegisterForm from 'components/registerForm/RegisterForm'
 import Outro from 'components/outro/Outro'
-import {quartInOut} from 'eases'
 import useWindowResize from 'hooks/useWindowResize'
 import useScrollRatio from 'hooks/useScrollRatio'
 import {getHome, setLocale} from 'lib/api'
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {cn} from 'utils/classnames'
 import styles from './index.module.scss'
 import {CloudinaryImage} from 'components/image/Image'
 import Key from 'svgs/key.svg'
-import {timeline} from 'motion'
+import {style, timeline} from 'motion'
 import {ParallaxMedia} from 'components/parallaxMedia/ParallaxMedia'
 
 const Home = (props) => {
@@ -35,32 +33,10 @@ const Home = (props) => {
 	const iframeRef = useRef(null)
 	const keyRef = useRef(null)
 	const tl = useRef(null)
-	const [style, api] = useSpring(() => ({
-		from: {
-			// mainPosition: 'fixed',
-			// mainY: 'translate3d(0,100vh,0)',
-
-			outroY: 'translate3d(0,100%,0)',
-			outroVisibility: 'hidden',
-		},
-		config: (value) => ({
-			duration: 1200,
-			easing: quartInOut,
-			restVelocity: 0.001,
-		}),
-	}))
-
-	const handleCancel = () => {
-		api.start({
-			outroY: 'translate3d(0,100%,0)',
-		})
-	}
+	const [outroIsOpened, setOutroIsOpened] = useState(false)
 
 	const handleSubmit = () => {
-		api.start({
-			outroVisibility: 'inherit',
-			outroY: 'translate3d(0,0%,0)',
-		})
+		setOutroIsOpened(true)
 	}
 
 	useWindowResize(() => {
@@ -97,21 +73,21 @@ const Home = (props) => {
 		<>
 			<div className={styles.main} style={{transform: style.mainY, position: style.mainPosition}}>
 				<aside aria-hidden className={styles.overlay} ref={keyRef}>
-					{/* <i />
+					<i />
 					<Key />
-					<i /> */}
+					<i />
 				</aside>
 				<main className={styles.main} ref={mainRef}>
 					<header className={styles.header}>
 						<figure>
 							<ParallaxMedia
 								scrollProps={{className: styles.mediaWrapper}}
-								distance={300}
+								distance={200}
 								offset={[
 									[0, 0],
 									[1, 0],
 								]}>
-								<CloudinaryImage src={heroImage} width={1280} height={1834} className={styles.background} />
+								<CloudinaryImage src={heroImage} width={1280} height={1834} className={styles.background} priority />
 							</ParallaxMedia>
 							<figcaption className={styles.caption}>
 								<h1 className='hm-1 hd-1'>{title}</h1>
@@ -136,10 +112,10 @@ const Home = (props) => {
 				title={thanksTitle}
 				description={thanksDescription}
 				image={thanksImage}
-				onCancel={handleCancel}
+				// onCancel={handleCancel}
 				optin={thanksOptin}
 				ctaLabel={thanksCtaLabel}
-				style={{transform: style.outroY, visibility: style.outroVisibility}} />
+				isOpened={outroIsOpened} />
 			{/* <Thanks message={thanksMessage} thanksCtaLabel={thanksCtaLabel} image={thanksImage} style={{transform: style.thanksY, visibility: style.thanksVisibility}} ctaUrl={thanksCtaUrl} /> */}
 		</>
 	)
@@ -160,4 +136,5 @@ export async function getStaticProps ({preview = false, locale, locales, default
 		revalidate: 15,
 	}
 }
+
 export default Home

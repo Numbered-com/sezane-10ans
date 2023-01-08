@@ -31,7 +31,6 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
-    "@react-spring/web": "^9.6.1",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",

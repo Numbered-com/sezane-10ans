@@ -6,7 +6,7 @@ import {CloudinaryImage} from 'components/image/Image'
 import Input from 'components/input/Input'
 import Locale from 'components/locale/Locale'
 import useLocale from 'hooks/useLocale'
-import {useRef} from 'react'
+import {useRef, useState} from 'react'
 import useFormStore from 'stores/useFormStore'
 import {cn} from 'utils/classnames'
 import styles from './registerForm.module.scss'
@@ -16,14 +16,17 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 	const locale = useLocale()
 	const optin1Ref = useRef(null)
 	const optin2Ref = useRef(null)
+	const [isLoading, setIsLoading] = useState(false)
 	const setSenderInfo = useFormStore(state => state.setSenderInfo)
 
 	const {query: {locale: lc, dataset}} = useRouter()
 	const currentLang = lc || process.env.NEXT_PUBLIC_LOCALE
 	// const currentDataset = dataset || process.env.NEXT_PUBLIC_SANITY_API_DATASET
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
+
+		setIsLoading(true)
 
 		const data = new FormData(e.currentTarget)
 		setSenderInfo({
@@ -40,7 +43,7 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 			object[key] = value
 		})
 
-		fetch('https://sa31mci2pi.execute-api.eu-west-3.amazonaws.com/default/10ans-register-user', {
+		await fetch('https://sa31mci2pi.execute-api.eu-west-3.amazonaws.com/default/10ans-register-user', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -55,12 +58,14 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 		}).catch((e) => {
 			console.error(e)
 		})
+
+		setIsLoading(false)
 	}
 
 	return (
 		<div className={styles.registerForm}>
-			<ParallaxMedia distance={300} className={styles.background}>
-				<CloudinaryImage src={formImage} width={720} height={810} layout='fill' objectFit='cover' />
+			<ParallaxMedia distance={200} className={styles.background}>
+				<CloudinaryImage src={formImage} width={720} height={810} layout='fill' objectFit='cover' desktopWidth={620} />
 			</ParallaxMedia>
 
 			<div className={styles.card}>
@@ -77,7 +82,7 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 						<Checkbox ref={optin2Ref} className={cn(styles.input, styles.checkbox)} id='consent' name='consent' required>
 							<CustomBlockContent blocks={formOptin2} className={styles.legals} />
 						</Checkbox>
-						<Button type='submit' variant={ButtonVariant.rect} className={styles.button}><Locale>Je tente ma chance</Locale></Button>
+						<Button type='submit' variant={ButtonVariant.rect} className={styles.button} disabled={isLoading}><Locale>Je tente ma chance</Locale></Button>
 					</form>
 				</div>
 			</div>
