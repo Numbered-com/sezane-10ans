@@ -41,14 +41,12 @@ module.exports = withPlugins(
 			`,
 		},
 		images: {
-			deviceSizes: [640, 960, 1200, 1920],
+			deviceSizes: [1, 640, 960, 1200, 1920],
 			imageSizes: [48, 96, 160, 320],
 			domains: ['cdn.sanity.io'],
 			loader: 'custom',
 		},
 		eslint: {
-		// Warning: Dangerously allow production builds to successfully complete even if
-		// your project has ESLint errors.
 			ignoreDuringBuilds: true,
 		},
 		webpack: (config, {webpack}) => {

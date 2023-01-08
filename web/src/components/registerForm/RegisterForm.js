@@ -10,6 +10,7 @@ import {useRef} from 'react'
 import useFormStore from 'stores/useFormStore'
 import {cn} from 'utils/classnames'
 import styles from './registerForm.module.scss'
+import {ParallaxMedia} from 'components/parallaxMedia/ParallaxMedia'
 
 const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, formOptin1, formOptin2, onSubmit}) => {
 	const locale = useLocale()
@@ -58,8 +59,9 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 
 	return (
 		<div className={styles.registerForm}>
-
-			<CloudinaryImage src={formImage} width={720} height={810} className={styles.background} layout='fill' objectFit='cover' />
+			<ParallaxMedia distance={300} className={styles.background}>
+				<CloudinaryImage src={formImage} width={720} height={810} layout='fill' objectFit='cover' />
+			</ParallaxMedia>
 
 			<div className={styles.card}>
 				{formSurtitle && <span className='pm-m pd-md italic'>{formSurtitle}</span>}

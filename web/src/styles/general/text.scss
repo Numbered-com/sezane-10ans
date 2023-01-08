@@ -2,6 +2,7 @@
 %h {
 	line-height: 1;
 	text-transform: uppercase;
+	white-space: pre-wrap;
 
 	&m {
 		&-1 {
@@ -71,7 +72,7 @@
 			@include desktop {
 				letter-spacing: 0.05em;
 				padding-right: 0.04em;
-				font-size: 24.8rem;
+				font-size: 23rem;
 			}
 		}
 

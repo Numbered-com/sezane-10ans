@@ -28,7 +28,7 @@ export default {
 		},
 		{
 			name: 'formTitle',
-			type: 'localeString',
+			type: 'localeText',
 		},
 		{
 			name: 'formDescription',

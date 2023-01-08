@@ -130,18 +130,12 @@
 	.background {
 		position: relative;
 
+		& > div {
+			height: 100%;
+		}
+
 		@include desktop {
 			width: 50%;
 		}
-	}
-}
-
-@keyframes translate {
-	0% {
-		transform: translateY(0%) translateZ(0);
-	}
-
-	100% {
-		transform: translateY(-50%) translateZ(0);
 	}
 }

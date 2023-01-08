@@ -3,11 +3,15 @@ import RegisterForm from 'components/registerForm/RegisterForm'
 import Outro from 'components/outro/Outro'
 import {quartInOut} from 'eases'
 import useWindowResize from 'hooks/useWindowResize'
+import useScrollRatio from 'hooks/useScrollRatio'
 import {getHome, setLocale} from 'lib/api'
-import {useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import {cn} from 'utils/classnames'
 import styles from './index.module.scss'
 import {CloudinaryImage} from 'components/image/Image'
+import Key from 'svgs/key.svg'
+import {timeline} from 'motion'
+import {ParallaxMedia} from 'components/parallaxMedia/ParallaxMedia'
 
 const Home = (props) => {
 	const {
@@ -26,7 +30,10 @@ const Home = (props) => {
 		thanksOptin,
 		thanksCtaLabel,
 	} = props
+	const mainRef = useRef(null)
 	const iframeRef = useRef(null)
+	const keyRef = useRef(null)
+	const tl = useRef(null)
 	const [style, api] = useSpring(() => ({
 		from: {
 			// mainPosition: 'fixed',
@@ -59,6 +66,18 @@ const Home = (props) => {
 		if (iframeRef?.current) iframeRef.current.style.height = iframeRef.current.contentWindow.document.documentElement.scrollHeight + 'px'
 	})
 
+	useEffect(() => {
+		tl.current = timeline([
+			[keyRef.current, {scale: [1, 70], translateZ: 0}, {duration: 1}],
+			[keyRef.current, {opacity: [1, 0]}, {duration: 0.1, at: 0.9}],
+		], {duration: 1, easing: 'linear'})
+		tl.current.pause()
+	}, [])
+
+	useScrollRatio(mainRef, (ratio) => {
+		tl.current.currentTime = ratio
+	}, {offset: [[0, 0], [0.75, 1]]})
+
 	const resizeIframe = (obj) => {
 		obj.target.style.height = obj.target.contentWindow.document.documentElement.scrollHeight + 'px'
 	}
@@ -75,11 +94,22 @@ const Home = (props) => {
 
 	return (
 		<>
-			<animated.div className={styles.main} style={{transform: style.mainY, position: style.mainPosition}}>
-				<main className={styles.main}>
+			<div className={styles.main} style={{transform: style.mainY, position: style.mainPosition}}>
+				<aside aria-hidden className={styles.overlay} ref={keyRef}>
+					<i />
+					<Key />
+					<i />
+				</aside>
+				<main className={styles.main} ref={mainRef}>
 					<header className={styles.header}>
 						<figure>
-							<CloudinaryImage src={heroImage} width={1440} height={1473} className={styles.background} />
+							<ParallaxMedia
+								distance={300} offset={[
+									[0, 0],
+									[1, 0],
+								]}>
+								<CloudinaryImage src={heroImage} width={1440} height={1473} className={styles.background} />
+							</ParallaxMedia>
 							<figcaption className={styles.caption}>
 								<h1 className='hm-1 hd-1'>{title}</h1>
 								{subtitleIntro && <p className={cn('pm-m pd-l upper', styles.description)}>{subtitleIntro}</p>}
@@ -98,8 +128,15 @@ const Home = (props) => {
 						</footer>
 					)}
 				</main>
-			</animated.div>
-			<Outro title={thanksTitle} description={thanksDescription} image={thanksImage} onCancel={handleCancel} optin={thanksOptin} style={{transform: style.outroY, visibility: style.outroVisibility}} />
+			</div>
+			<Outro
+				title={thanksTitle}
+				description={thanksDescription}
+				image={thanksImage}
+				onCancel={handleCancel}
+				optin={thanksOptin}
+				ctaLabel={thanksCtaLabel}
+				style={{transform: style.outroY, visibility: style.outroVisibility}} />
 			{/* <Thanks message={thanksMessage} thanksCtaLabel={thanksCtaLabel} image={thanksImage} style={{transform: style.thanksY, visibility: style.thanksVisibility}} ctaUrl={thanksCtaUrl} /> */}
 		</>
 	)
