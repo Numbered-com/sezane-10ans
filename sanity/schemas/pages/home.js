@@ -8,7 +8,7 @@ export default {
 	fields: [
 		{
 			name: 'title',
-			type: 'localeString',
+			type: 'localeText',
 			validation: Rule => Rule.required(),
 		},
 		{

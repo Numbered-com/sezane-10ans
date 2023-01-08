@@ -50,7 +50,7 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 		}).then((res) => {
 			return res.json()
 		}).then((data) => {
-			console.log('Intro.js', data)
+			console.log(data)
 			if (onSubmit) onSubmit()
 		}).catch((e) => {
 			console.error(e)

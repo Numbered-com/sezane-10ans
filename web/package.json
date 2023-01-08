@@ -53,6 +53,7 @@
     "screenfull": "^6.0.2",
     "tiny-emitter": "^2.1.0",
     "virtual-scroll": "^2.2.1",
+    "walkjs": "^3.2.4",
     "zustand": "^4.2.0"
   },
   "devDependencies": {

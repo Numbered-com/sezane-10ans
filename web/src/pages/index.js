@@ -1,4 +1,4 @@
-import {useSpring, animated} from '@react-spring/web'
+import {useSpring} from '@react-spring/web'
 import RegisterForm from 'components/registerForm/RegisterForm'
 import Outro from 'components/outro/Outro'
 import {quartInOut} from 'eases'
@@ -30,6 +30,7 @@ const Home = (props) => {
 		thanksOptin,
 		thanksCtaLabel,
 	} = props
+
 	const mainRef = useRef(null)
 	const iframeRef = useRef(null)
 	const keyRef = useRef(null)
@@ -68,7 +69,7 @@ const Home = (props) => {
 
 	useEffect(() => {
 		tl.current = timeline([
-			[keyRef.current, {scale: [1, 70], translateZ: 0}, {duration: 1}],
+			[keyRef.current, {scale: [1, 70]}, {duration: 1}],
 			[keyRef.current, {opacity: [1, 0]}, {duration: 0.1, at: 0.9}],
 		], {duration: 1, easing: 'linear'})
 		tl.current.pause()
@@ -96,23 +97,25 @@ const Home = (props) => {
 		<>
 			<div className={styles.main} style={{transform: style.mainY, position: style.mainPosition}}>
 				<aside aria-hidden className={styles.overlay} ref={keyRef}>
-					<i />
+					{/* <i />
 					<Key />
-					<i />
+					<i /> */}
 				</aside>
 				<main className={styles.main} ref={mainRef}>
 					<header className={styles.header}>
 						<figure>
 							<ParallaxMedia
-								distance={300} offset={[
+								scrollProps={{className: styles.mediaWrapper}}
+								distance={300}
+								offset={[
 									[0, 0],
 									[1, 0],
 								]}>
-								<CloudinaryImage src={heroImage} width={1440} height={1473} className={styles.background} />
+								<CloudinaryImage src={heroImage} width={1280} height={1834} className={styles.background} />
 							</ParallaxMedia>
 							<figcaption className={styles.caption}>
 								<h1 className='hm-1 hd-1'>{title}</h1>
-								{subtitleIntro && <p className={cn('pm-m pd-l upper', styles.description)}>{subtitleIntro}</p>}
+								{subtitleIntro && <p className={cn('pm-l pd-l upper', styles.description)}>{subtitleIntro}</p>}
 							</figcaption>
 						</figure>
 					</header>
@@ -143,7 +146,7 @@ const Home = (props) => {
 }
 
 export async function getStaticProps ({preview = false, locale, locales, defaultLocale}) {
-	setLocale(locale || process.env.NEXT_PUBLIC_LOCALE)
+	setLocale(locale || process.env.NEXT_PUBLIC_LOCALE, defaultLocale, locales)
 
 	const [home] = await Promise.all([
 		getHome(preview, process.env.NEXT_PUBLIC_SANITY_API_DATASET),

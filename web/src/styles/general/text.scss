@@ -8,11 +8,10 @@
 		&-1 {
 			@extend %h;
 
-			font-size: 7.8rem;
-			letter-spacing: 0.025em;
+			font-size: 5.5rem;
+			letter-spacing: 0.05em;
 			color: $white;
 			font-family: $font-serif-title;
-			line-height: 0.8;
 
 			@include desktop {
 				font-size: 15rem;
@@ -144,19 +143,26 @@
 
 			font-size: 1.4rem;
 		}
+
+		&-l {
+			font-family: $font-oswald;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 1.3rem;
+		}
 	}
 
 	&d {
 		&-s {
 			@extend %p;
 
-			font-size: 1.1rem;
+			@include desktop {
+				font-size: 1.1rem;
+			}
 		}
 
 		&-m {
 			@extend %p;
-
-			font-size: 1.2rem;
 
 			@include desktop {
 				font-size: 1.5rem;
@@ -178,12 +184,10 @@
 		&-l {
 			@extend %p;
 
-			font-family: $font-oswald;
-			text-transform: uppercase;
-			font-size: 1.4rem;
-			font-weight: 600;
-
 			@include desktop {
+				font-family: $font-oswald;
+				text-transform: uppercase;
+				font-weight: 600;
 				font-size: 1.9rem;
 			}
 		}

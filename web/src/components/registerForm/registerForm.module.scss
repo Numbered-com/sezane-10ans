@@ -14,14 +14,15 @@
 		position: relative;
 		z-index: 1;
 		background: $beige;
-		margin-top: 9rem;
-		padding: 10rem 0;
+		padding: 3rem 0;
 
 		& > span {
+			display: block;
 			margin-bottom: 2rem;
 		}
 
 		@include desktop {
+			padding: 10rem 0;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -39,22 +40,19 @@
 	}
 
 	// Script Image
-	.message {
-		margin: 0 auto;
-		max-height: 67px;
-		display: block;
-		width: auto;
-
-		@include desktop {
-			max-height: 91px;
-		}
-	}
+	// .message {
+	// 	margin: 0 auto;
+	// 	max-height: 67px;
+	// 	display: block;
+	// 	width: auto;
+	// }
 
 	.description {
-		margin: 2.1rem auto 1.4rem;
+		margin: 0 auto 2rem;
 
 		@include desktop {
-			max-width: 37rem;
+			margin: 0 auto 3rem;
+			width: span(8);
 		}
 	}
 
@@ -62,7 +60,7 @@
 		margin: 1.4rem auto 2rem;
 
 		@include desktop {
-			width: span(4 wider);
+			width: span(5 wider);
 			margin: 1rem auto 0;
 		}
 
@@ -130,8 +128,15 @@
 	.background {
 		position: relative;
 
+		@include mobile {
+			margin: 1rem;
+			padding-bottom: 100%;
+		}
+
 		& > div {
+			position: absolute;
 			height: 100%;
+			width: 100%;
 		}
 
 		@include desktop {

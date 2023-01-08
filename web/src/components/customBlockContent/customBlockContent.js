@@ -44,7 +44,7 @@ const serializers = {
 	marks: {
 		link: ({mark, children}) => {
 			if (mark._type === 'link') {
-				return <a href={mark.url} target='_blank' rel='noopener noreferrer' className={linkStyle.customLink}>{children}</a>
+				return <a href={mark.href[0].url} target='_blank' rel='noopener noreferrer' className={linkStyle.customLink}>{children}</a>
 			} else {
 				return <></>
 			}
