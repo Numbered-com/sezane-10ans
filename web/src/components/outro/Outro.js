@@ -84,8 +84,8 @@ const Outro = ({title, description, image, onSubmit, onCancel, style, optin, cta
 					</p>
 				)}
 				<div className={cn(styles.formContent, success && styles.success)}>
-					<Input type='text' name='name' placeholder={locale('Prénom')} className={styles.input} required={false} />
-					<Input type='email' name='email' placeholder={locale('Adresse e-mail')} className={styles.input} required />
+					<Input type='text' name='name' placeholder={locale('Firstname')} className={styles.input} required={false} />
+					<Input type='email' name='email' placeholder={locale('E-mail address')} className={styles.input} required />
 					{/* <Checkbox className={cn(styles.input, styles.check, styles.checkbox)} id='consent' name='consent' required>
 						<CustomBlockContent blocks={optin} className='pd-s' />
 					</Checkbox> */}
