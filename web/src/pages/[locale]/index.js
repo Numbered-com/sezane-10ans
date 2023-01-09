@@ -5,7 +5,7 @@ import useScrollRatio from 'hooks/useScrollRatio'
 import {getHome, setLocale} from 'lib/api'
 import {useEffect, useRef, useState} from 'react'
 import {cn} from 'utils/classnames'
-import styles from './index.module.scss'
+import styles from '../index.module.scss'
 import {CloudinaryImage} from 'components/image/Image'
 import Key from 'svgs/key.svg'
 import {style, timeline} from 'motion'
@@ -127,8 +127,15 @@ const Home = (props) => {
 	)
 }
 
-export async function getStaticProps ({preview = false, locale, locales, defaultLocale}) {
-	setLocale(locale || process.env.NEXT_PUBLIC_LOCALE, defaultLocale, locales)
+export const getStaticPaths = async ({locales, preview}) => {
+	return {
+		paths: [],
+		fallback: 'blocking',
+	}
+}
+
+export async function getStaticProps ({preview = false, params, locale, locales, defaultLocale}) {
+	setLocale(params.locale || process.env.NEXT_PUBLIC_LOCALE, defaultLocale, locales)
 
 	const [home] = await Promise.all([
 		getHome(preview, process.env.NEXT_PUBLIC_SANITY_API_DATASET),
