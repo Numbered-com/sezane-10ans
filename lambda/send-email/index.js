@@ -17,13 +17,13 @@ exports.handler = async function (event, context, callback) {
 
 		const emailIds = {
 			sezane: {
-				fr_fr: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
+				fr_fr: '76013264-71d1-40c2-b3f9-0e8cd68c70a4',
 				en_us: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
 				en_uk: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
 				en_eu: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
 			},
 			octobre: {
-				fr_fr: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
+				fr_fr: '76013264-71d1-40c2-b3f9-0e8cd68c70a4',
 				en_us: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
 				en_uk: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
 				en_eu: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
