@@ -29,7 +29,7 @@ const Layout = ({appProps, pageProps, children}) => {
 	useIsomorphicLayoutEffect(() => {
 		const lenis = new Lenis({
 			duration: 0.8,
-			mouseMultiplier: 0.5,
+			mouseMultiplier: 0.75,
 			direction: 'vertical',
 			gestureDirection: 'vertical',
 			smooth: true,
