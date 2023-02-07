@@ -48,10 +48,13 @@ const Home = (props) => {
 	})
 
 	useEffect(() => {
+		if (history.scrollRestoration) {
+			history.scrollRestoration = 'manual'
+		}
+
 		if (lenis) {
-			// lenis.scrollTo(0)
+			lenis.scrollTo(0)
 			const titleRect = titleRef.current.getBoundingClientRect()
-			console.log('index.js', titleRef.current, titleRef.current.offsetTop, titleRect.height)
 			const dest = titleRef.current.offsetTop + titleRect.height - window.innerHeight// lenis.scroll
 			tl.current = timeline([
 				[keyRef.current, {scale: [1, 37]}, {duration: 3}],
@@ -62,9 +65,9 @@ const Home = (props) => {
 			animate(
 				(progress) => {
 					lenis.scrollTo(progress * dest, {immediate: true})
-					// window.scrollTo(0, progress * 300)
+					// window.scrollTo(0, progress * dest)
 				},
-				{duration: 2.5, easing: quartInOut, delay: 0.2},
+				{duration: 2.3, easing: quartInOut, delay: 0.2},
 			)
 		}
 	}, [lenis])
