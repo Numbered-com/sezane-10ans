@@ -1,7 +1,6 @@
 import RegisterForm from 'components/registerForm/RegisterForm'
 import Outro from 'components/outro/Outro'
 import useWindowResize from 'hooks/useWindowResize'
-import useScrollRatio from 'hooks/useScrollRatio'
 import {getHome, setLocale} from 'lib/api'
 import {useEffect, useRef, useState} from 'react'
 import {cn} from 'utils/classnames'
@@ -10,6 +9,7 @@ import {CloudinaryImage} from 'components/image/Image'
 import Key from 'svgs/key.svg'
 import {style, timeline} from 'motion'
 import {ParallaxMedia} from 'components/parallaxMedia/ParallaxMedia'
+import {expoInOut, quartInOut} from 'eases'
 
 const Home = (props) => {
 	const {
@@ -32,6 +32,7 @@ const Home = (props) => {
 	const mainRef = useRef(null)
 	const iframeRef = useRef(null)
 	const keyRef = useRef(null)
+	const backgroundRef = useRef(null)
 	const tl = useRef(null)
 	const [outroIsOpened, setOutroIsOpened] = useState(false)
 
@@ -44,18 +45,16 @@ const Home = (props) => {
 	})
 
 	useEffect(() => {
-		// console.log('index.js', windowSize.width)
-		const ratio = 5.9 / 144
 		tl.current = timeline([
-			[keyRef.current, {scale: [1, 37]}, {duration: 1}],
-			// [keyRef.current, {opacity: [1, 0]}, {duration: 0.1, at: 0.9}],
-		], {duration: 1, easing: 'linear'})
-		tl.current.pause()
+			[keyRef.current, {scale: [1, 37]}, {duration: 3}],
+			[backgroundRef.current, {scale: [1.2, 1]}, {duration: 3, easing: quartInOut, at: 0}],
+		], {duration: 1, defaultOptions: {easing: expoInOut, delay: 0.2}})
+		// tl.current.pause()
 	}, [])
 
-	useScrollRatio(mainRef, (ratio) => {
-		tl.current.currentTime = ratio
-	}, {offset: [[0, 0], [0.75, 1]]})
+	// useScrollRatio(mainRef, (ratio) => {
+	// 	tl.current.currentTime = ratio
+	// }, {offset: [[0, 0], [0.75, 1]]})
 
 	const resizeIframe = (obj) => {
 		obj.target.style.height = obj.target.contentWindow.document.documentElement.scrollHeight + 'px'
@@ -91,7 +90,7 @@ const Home = (props) => {
 									[0, 0],
 									[1, 0],
 								]}>
-								<CloudinaryImage src={heroImage} width={1280} height={1834} className={styles.background} priority />
+								<CloudinaryImage src={heroImage} width={1280} height={1834} className={styles.background} priority ref={backgroundRef} />
 							</ParallaxMedia>
 							<figcaption className={styles.caption}>
 								<div className='container'>

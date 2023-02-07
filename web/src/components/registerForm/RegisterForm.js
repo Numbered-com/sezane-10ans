@@ -74,7 +74,8 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 				<div className={styles.content}>
 					<p className={cn('pm-m pd-md italic', styles.description)}>{formDescription}</p>
 					<form className={styles.form} onSubmit={handleSubmit}>
-						<Input type='text' name='name' placeholder={locale('Firstname')} className={styles.input} required />
+						<Input type='text' name='firstname' placeholder={locale('Firstname')} className={styles.input} required />
+						<Input type='text' name='name' placeholder={locale('Last name')} className={styles.input} required />
 						<Input type='email' name='email' placeholder={locale('E-mail address')} className={styles.input} required />
 						<Checkbox ref={optin1Ref} className={cn(styles.input, styles.checkbox, styles.invitation)} id='invitation' name='invitation'>
 							<CustomBlockContent blocks={formOptin1} className={styles.legals} />
