@@ -14,10 +14,10 @@ exports.handler = async function (event, context) {
 		const promise = new Promise(function (resolve, reject) {
 			api.subscribers.addSubscriber('c7152c4f4a18cc334c68e596bc7be689', {
 				EmailAddress: params.email,
-				// Name: params.name,
+				Name: params.firstname + ' ' + params.name,
 				CustomFields: [
 					{ Key: 'firstname', Value: params.firstname },
-					{ Key: 'name', Value: params.name },
+					{ Key: 'lastname', Value: params.name },
 					{ Key: 'invitation', Value: params.invitation ? 'yes' : 'no' },
 					{ Key: 'locale', Value: params.locale },
 					{ Key: 'referral', Value: params.referral }

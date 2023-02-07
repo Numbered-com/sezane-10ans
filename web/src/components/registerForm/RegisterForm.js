@@ -30,7 +30,7 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 
 		const data = new FormData(e.currentTarget)
 		setSenderInfo({
-			name: data.get('name'),
+			name: data.get('firstname') + ' ' + data.get('name'),
 			email: data.get('email'),
 			// invitation: false,
 			invitation: optin1Ref.current.checked,
@@ -43,7 +43,8 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 			object[key] = value
 		})
 
-		await fetch('https://sa31mci2pi.execute-api.eu-west-3.amazonaws.com/default/10ans-register-user', {
+		await fetch('https://uckcdihdpb.execute-api.eu-west-3.amazonaws.com/default/register', {
+		// await fetch('https://sa31mci2pi.execute-api.eu-west-3.amazonaws.com/default/10ans-register-user', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
