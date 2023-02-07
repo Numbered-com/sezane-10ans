@@ -7,9 +7,10 @@ import {cn} from 'utils/classnames'
 import styles from './index.module.scss'
 import {CloudinaryImage} from 'components/image/Image'
 import Key from 'svgs/key.svg'
-import {style, timeline} from 'motion'
+import {animate, style, timeline} from 'motion'
 import {ParallaxMedia} from 'components/parallaxMedia/ParallaxMedia'
 import {expoInOut, quartInOut} from 'eases'
+import useAppStore from 'stores/useAppStore'
 
 const Home = (props) => {
 	const {
@@ -31,10 +32,12 @@ const Home = (props) => {
 
 	const mainRef = useRef(null)
 	const iframeRef = useRef(null)
+	const titleRef = useRef(null)
 	const keyRef = useRef(null)
 	const backgroundRef = useRef(null)
 	const tl = useRef(null)
 	const [outroIsOpened, setOutroIsOpened] = useState(false)
+	const lenis = useAppStore((state) => state.lenis)
 
 	const handleSubmit = () => {
 		setOutroIsOpened(true)
@@ -45,12 +48,25 @@ const Home = (props) => {
 	})
 
 	useEffect(() => {
-		tl.current = timeline([
-			[keyRef.current, {scale: [1, 37]}, {duration: 3}],
-			[backgroundRef.current, {scale: [1.2, 1]}, {duration: 3, easing: quartInOut, at: 0}],
-		], {duration: 1, defaultOptions: {easing: expoInOut, delay: 0.2}})
-		// tl.current.pause()
-	}, [])
+		if (lenis) {
+			lenis.scrollTo(0)
+			const titleRect = titleRef.current.getBoundingClientRect()
+			const dest = titleRect.top + titleRect.height// lenis.scroll
+			tl.current = timeline([
+				[keyRef.current, {scale: [1, 37]}, {duration: 3}],
+				[backgroundRef.current, {scale: [1.2, 1]}, {duration: 3, easing: quartInOut, at: 0}],
+				// [(progress) => { console.log('index.js', progress) }, {duration: 3, easing: quartInOut, at: 0}],
+			], {duration: 2, defaultOptions: {easing: expoInOut, delay: 0.2}})
+
+			animate(
+				(progress) => {
+					lenis.scrollTo(progress * dest, {immediate: true})
+					// window.scrollTo(0, progress * 300)
+				},
+				{duration: 2, easing: quartInOut},
+			)
+		}
+	}, [lenis])
 
 	// useScrollRatio(mainRef, (ratio) => {
 	// 	tl.current.currentTime = ratio
@@ -94,7 +110,7 @@ const Home = (props) => {
 							</ParallaxMedia>
 							<figcaption className={styles.caption}>
 								<div className='container'>
-									<h1 className='hm-1 hd-1'>{title}</h1>
+									<h1 className='hm-1 hd-1' ref={titleRef}>{title}</h1>
 									{subtitleIntro && <p className={cn('pm-l pd-l upper', styles.description)}>{subtitleIntro}</p>}
 								</div>
 							</figcaption>
