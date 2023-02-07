@@ -49,12 +49,13 @@ const Home = (props) => {
 
 	useEffect(() => {
 		if (lenis) {
-			lenis.scrollTo(0)
+			// lenis.scrollTo(0)
 			const titleRect = titleRef.current.getBoundingClientRect()
-			const dest = titleRect.top + titleRect.height// lenis.scroll
+			console.log('index.js', titleRef.current, titleRef.current.offsetTop, titleRect.height)
+			const dest = titleRef.current.offsetTop + titleRect.height - window.innerHeight// lenis.scroll
 			tl.current = timeline([
 				[keyRef.current, {scale: [1, 37]}, {duration: 3}],
-				[backgroundRef.current, {scale: [1.2, 1]}, {duration: 3, easing: quartInOut, at: 0}],
+				// [backgroundRef.current, {scale: [1.2, 1]}, {duration: 3, easing: quartInOut, at: 0}],
 				// [(progress) => { console.log('index.js', progress) }, {duration: 3, easing: quartInOut, at: 0}],
 			], {duration: 2, defaultOptions: {easing: expoInOut, delay: 0.2}})
 
@@ -63,7 +64,7 @@ const Home = (props) => {
 					lenis.scrollTo(progress * dest, {immediate: true})
 					// window.scrollTo(0, progress * 300)
 				},
-				{duration: 2, easing: quartInOut},
+				{duration: 2.5, easing: quartInOut, delay: 0.2},
 			)
 		}
 	}, [lenis])
@@ -108,9 +109,9 @@ const Home = (props) => {
 								]}>
 								<CloudinaryImage src={heroImage} width={1280} height={1834} className={styles.background} priority ref={backgroundRef} />
 							</ParallaxMedia>
-							<figcaption className={styles.caption}>
+							<figcaption className={styles.caption} ref={titleRef}>
 								<div className='container'>
-									<h1 className='hm-1 hd-1' ref={titleRef}>{title}</h1>
+									<h1 className='hm-1 hd-1'>{title}</h1>
 									{subtitleIntro && <p className={cn('pm-l pd-l upper', styles.description)}>{subtitleIntro}</p>}
 								</div>
 							</figcaption>
