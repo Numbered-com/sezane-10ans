@@ -17,16 +17,16 @@ exports.handler = async function (event, context, callback) {
 
 		const emailIds = {
 			sezane: {
-				fr_fr: '76013264-71d1-40c2-b3f9-0e8cd68c70a4',
-				en_us: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
-				en_uk: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
-				en_eu: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
+				fr_fr: 'cbe077a4-54ee-41cc-893a-37e9cf5f4160',
+				en_us: 'd9a662a8-4aee-49f9-b344-d5e011741ec5',
+				en_uk: 'd9a662a8-4aee-49f9-b344-d5e011741ec5',
+				en_eu: 'd9a662a8-4aee-49f9-b344-d5e011741ec5',
 			},
 			octobre: {
-				fr_fr: '76013264-71d1-40c2-b3f9-0e8cd68c70a4',
-				en_us: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
-				en_uk: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
-				en_eu: 'f6ed5779-abb4-46b3-aa63-ee438352e570',
+				fr_fr: 'cbe077a4-54ee-41cc-893a-37e9cf5f4160',
+				en_us: 'd9a662a8-4aee-49f9-b344-d5e011741ec5',
+				en_uk: 'd9a662a8-4aee-49f9-b344-d5e011741ec5',
+				en_eu: 'd9a662a8-4aee-49f9-b344-d5e011741ec5',
 			}
 		}
 

@@ -4,7 +4,7 @@ const api = new createsend({ apiKey: '24ac1f042328aa50a62773ef97706162d7eed8afd2
 const headers = {
 	'Content-Type': 'application/json',
 	'Access-Control-Allow-Headers': 'Content-Type',
-	'Access-Control-Allow-Origin': 'http://localhost:3000',
+	'Access-Control-Allow-Origin': '*',
 	'Access-Control-Allow-Methods': 'OPTIONS,POST'
 }
 
@@ -12,10 +12,12 @@ exports.handler = async function (event, context) {
 	const params = event.body ? JSON.parse(event.body) : {}
 	if (params.name && params.email && params.referral) {
 		const promise = new Promise(function (resolve, reject) {
-			api.subscribers.addSubscriber('1c5f57650c1eae5639bf20bc0c47a1d8', {
+			api.subscribers.addSubscriber('c7152c4f4a18cc334c68e596bc7be689', {
 				EmailAddress: params.email,
-				Name: params.name,
+				// Name: params.name,
 				CustomFields: [
+					{ Key: 'firstname', Value: params.firstname },
+					{ Key: 'name', Value: params.name },
 					{ Key: 'invitation', Value: params.invitation ? 'yes' : 'no' },
 					{ Key: 'locale', Value: params.locale },
 					{ Key: 'referral', Value: params.referral }

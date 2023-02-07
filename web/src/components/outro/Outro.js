@@ -32,7 +32,8 @@ const Outro = ({title, description, image, onSubmit, onCancel, style, optin, cta
 			recipient: {email: data.get('email'), name: data.get('name')},
 		}
 
-		await fetch('https://sa31mci2pi.execute-api.eu-west-3.amazonaws.com/default/10ans-send', {
+		await fetch('https://uckcdihdpb.execute-api.eu-west-3.amazonaws.com/default/send', {
+		// await fetch('https://sa31mci2pi.execute-api.eu-west-3.amazonaws.com/default/10ans-send', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',

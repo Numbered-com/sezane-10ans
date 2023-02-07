@@ -107,6 +107,7 @@
 
 		.background {
 			transform-origin: 50% 15%;
+			transform: scale(1.2);
 
 			@include mobile {
 				height: 100%;
