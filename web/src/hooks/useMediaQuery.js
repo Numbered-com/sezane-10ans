@@ -9,7 +9,7 @@ const useMediaQuery = () => {
 		setIsDesktop(isDesktopWidth())
 	}, true)
 
-	return {isDesktop}
+	return isDesktop
 }
 
 export default useMediaQuery

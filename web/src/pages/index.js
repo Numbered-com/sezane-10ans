@@ -11,6 +11,8 @@ import {animate, style, timeline} from 'motion'
 import {ParallaxMedia} from 'components/parallaxMedia/ParallaxMedia'
 import {expoInOut, quartInOut} from 'eases'
 import useAppStore from 'stores/useAppStore'
+import useMediaQuery from 'hooks/useMediaQuery'
+import useIsomorphicLayoutEffect from 'hooks/useIsomorphicLayoutEffect'
 
 const Home = (props) => {
 	const {
@@ -43,16 +45,20 @@ const Home = (props) => {
 		setOutroIsOpened(true)
 	}
 
+	const isDesktop = useMediaQuery()
+	console.log('index.js', isDesktop)
+
 	useWindowResize(() => {
 		if (iframeRef?.current) iframeRef.current.style.height = iframeRef.current.contentWindow.document.documentElement.scrollHeight + 'px'
 	})
 
-	useEffect(() => {
+	useIsomorphicLayoutEffect(() => {
 		if (history.scrollRestoration) {
 			history.scrollRestoration = 'manual'
 		}
 
-		if (lenis) {
+		if (lenis && isDesktop) {
+			console.log('index.js---------------', isDesktop)
 			lenis.scrollTo(0)
 			const titleRect = titleRef.current.getBoundingClientRect()
 			const dest = titleRef.current.offsetTop + titleRect.height - window.innerHeight// lenis.scroll
@@ -70,7 +76,7 @@ const Home = (props) => {
 				{duration: 2.3, easing: quartInOut, delay: 0.2},
 			)
 		}
-	}, [lenis])
+	}, [isDesktop, lenis])
 
 	// useScrollRatio(mainRef, (ratio) => {
 	// 	tl.current.currentTime = ratio
