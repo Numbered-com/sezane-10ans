@@ -2,7 +2,7 @@ import RegisterForm from 'components/registerForm/RegisterForm'
 import Outro from 'components/outro/Outro'
 import useWindowResize from 'hooks/useWindowResize'
 import {getHome, setLocale} from 'lib/api'
-import {useEffect, useRef, useState} from 'react'
+import {useRef, useState} from 'react'
 import {cn} from 'utils/classnames'
 import styles from './index.module.scss'
 import {CloudinaryImage} from 'components/image/Image'
@@ -40,13 +40,11 @@ const Home = (props) => {
 	const tl = useRef(null)
 	const [outroIsOpened, setOutroIsOpened] = useState(false)
 	const lenis = useAppStore((state) => state.lenis)
+	const isDesktop = useMediaQuery()
 
 	const handleSubmit = () => {
 		setOutroIsOpened(true)
 	}
-
-	const isDesktop = useMediaQuery()
-	console.log('index.js', isDesktop)
 
 	useWindowResize(() => {
 		if (iframeRef?.current) iframeRef.current.style.height = iframeRef.current.contentWindow.document.documentElement.scrollHeight + 'px'
@@ -58,7 +56,6 @@ const Home = (props) => {
 		}
 
 		if (lenis && isDesktop) {
-			console.log('index.js---------------', isDesktop)
 			lenis.scrollTo(0)
 			const titleRect = titleRef.current.getBoundingClientRect()
 			const dest = titleRef.current.offsetTop + titleRect.height - window.innerHeight// lenis.scroll
