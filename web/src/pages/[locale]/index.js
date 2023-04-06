@@ -1,27 +1,24 @@
 import RegisterForm from 'components/registerForm/RegisterForm'
 import Outro from 'components/outro/Outro'
 import useWindowResize from 'hooks/useWindowResize'
-import useScrollRatio from 'hooks/useScrollRatio'
 import {getHome, setLocale} from 'lib/api'
-import {useEffect, useRef, useState} from 'react'
+import {useRef, useState} from 'react'
 import {cn} from 'utils/classnames'
 import styles from '../index.module.scss'
 import {CloudinaryImage} from 'components/image/Image'
 import Key from 'svgs/key.svg'
-import {style, timeline} from 'motion'
+import {animate, style, timeline} from 'motion'
 import {ParallaxMedia} from 'components/parallaxMedia/ParallaxMedia'
+import {expoInOut, quartInOut} from 'eases'
+import useIsomorphicLayoutEffect from 'hooks/useIsomorphicLayoutEffect'
+import useMediaQuery from 'hooks/useMediaQuery'
+import useAppStore from 'stores/useAppStore'
 
 const Home = (props) => {
 	const {
 		title,
 		subtitleIntro,
 		heroImage,
-		formSurtitle,
-		formTitle,
-		formDescription,
-		formOptin1,
-		formOptin2,
-		formImage,
 		thanksTitle,
 		thanksImage,
 		thanksDescription,
@@ -31,9 +28,13 @@ const Home = (props) => {
 
 	const mainRef = useRef(null)
 	const iframeRef = useRef(null)
+	const titleRef = useRef(null)
 	const keyRef = useRef(null)
+	const backgroundRef = useRef(null)
 	const tl = useRef(null)
 	const [outroIsOpened, setOutroIsOpened] = useState(false)
+	const lenis = useAppStore((state) => state.lenis)
+	const isDesktop = useMediaQuery()
 
 	const handleSubmit = () => {
 		setOutroIsOpened(true)
@@ -43,19 +44,34 @@ const Home = (props) => {
 		if (iframeRef?.current) iframeRef.current.style.height = iframeRef.current.contentWindow.document.documentElement.scrollHeight + 'px'
 	})
 
-	useEffect(() => {
-		// console.log('index.js', windowSize.width)
-		const ratio = 5.9 / 144
-		tl.current = timeline([
-			[keyRef.current, {scale: [1, 37]}, {duration: 1}],
-			// [keyRef.current, {opacity: [1, 0]}, {duration: 0.1, at: 0.9}],
-		], {duration: 1, easing: 'linear'})
-		tl.current.pause()
-	}, [])
+	useIsomorphicLayoutEffect(() => {
+		if (history.scrollRestoration) {
+			history.scrollRestoration = 'manual'
+		}
 
-	useScrollRatio(mainRef, (ratio) => {
-		tl.current.currentTime = ratio
-	}, {offset: [[0, 0], [0.75, 1]]})
+		if (lenis && isDesktop) {
+			lenis.scrollTo(0)
+			const titleRect = titleRef.current.getBoundingClientRect()
+			const dest = titleRef.current.offsetTop + titleRect.height - window.innerHeight// lenis.scroll
+			tl.current = timeline([
+				[keyRef.current, {scale: [1, 37]}, {duration: 3}],
+				// [backgroundRef.current, {scale: [1.2, 1]}, {duration: 3, easing: quartInOut, at: 0}],
+				// [(progress) => { console.log('index.js', progress) }, {duration: 3, easing: quartInOut, at: 0}],
+			], {duration: 2, defaultOptions: {easing: expoInOut, delay: 0.2}})
+
+			animate(
+				(progress) => {
+					lenis.scrollTo(progress * dest, {immediate: true})
+					// window.scrollTo(0, progress * dest)
+				},
+				{duration: 2.3, easing: quartInOut, delay: 0.2},
+			)
+		}
+	}, [isDesktop, lenis])
+
+	// useScrollRatio(mainRef, (ratio) => {
+	// 	tl.current.currentTime = ratio
+	// }, {offset: [[0, 0], [0.75, 1]]})
 
 	const resizeIframe = (obj) => {
 		obj.target.style.height = obj.target.contentWindow.document.documentElement.scrollHeight + 'px'
@@ -91,9 +107,9 @@ const Home = (props) => {
 									[0, 0],
 									[1, 0],
 								]}>
-								<CloudinaryImage src={heroImage} width={1280} height={1834} className={styles.background} priority />
+								<CloudinaryImage src={heroImage} width={1280} height={1834} className={styles.background} priority ref={backgroundRef} />
 							</ParallaxMedia>
-							<figcaption className={styles.caption}>
+							<figcaption className={styles.caption} ref={titleRef}>
 								<div className='container'>
 									<h1 className='hm-1 hd-1'>{title}</h1>
 									{subtitleIntro && <p className={cn('pm-l pd-l upper', styles.description)}>{subtitleIntro}</p>}
