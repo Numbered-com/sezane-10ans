@@ -1,7 +1,7 @@
 const createsend = require('createsend-node')
 const cloudinary = require('cloudinary').v2
 cloudinary.config({ cloud_name: 'dwunpjzlo' })
-const cloudinaryBase = 'https://media.sezane.com/image/upload/'
+// const cloudinaryBase = 'https://media.sezane.com/image/upload/'
 
 const headers = {
 	'Content-Type': 'application/json',
@@ -17,16 +17,16 @@ exports.handler = async function (event, context, callback) {
 
 		const emailIds = {
 			sezane: {
-				fr_fr: '85a7a261-ad27-49c0-a24f-8b0553d15888',
-				en_us: '427f0a54-e4ba-45e0-9676-51e3c0602af6',
-				en_uk: '427f0a54-e4ba-45e0-9676-51e3c0602af6',
-				en_eu: '427f0a54-e4ba-45e0-9676-51e3c0602af6',
+				fr_fr: '56f89a00-58e4-4a82-966c-dd501e654779',
+				en_us: '45167383-21e9-435e-90bf-f71df1b497bb',
+				en_uk: 'b1dad100-460c-4532-aaf2-26ba97809488',
+				en_eu: '45167383-21e9-435e-90bf-f71df1b497bb',
 			},
 			octobre: {
-				fr_fr: '85a7a261-ad27-49c0-a24f-8b0553d15888',
-				en_us: '427f0a54-e4ba-45e0-9676-51e3c0602af6',
-				en_uk: '427f0a54-e4ba-45e0-9676-51e3c0602af6',
-				en_eu: '427f0a54-e4ba-45e0-9676-51e3c0602af6',
+				fr_fr: '56f89a00-58e4-4a82-966c-dd501e654779',
+				en_us: '45167383-21e9-435e-90bf-f71df1b497bb',
+				en_uk: 'b1dad100-460c-4532-aaf2-26ba97809488',
+				en_eu: '45167383-21e9-435e-90bf-f71df1b497bb',
 			}
 		}
 
