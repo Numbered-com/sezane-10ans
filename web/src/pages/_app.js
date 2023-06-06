@@ -27,7 +27,6 @@ function MyApp ({Component, pageProps, appProps, router}) {
 // perform automatic static optimization, causing every page in your app to
 // be server-side rendered.
 MyApp.getInitialProps = async (appContext) => {
-	if (typeof window !== 'undefined') return
 	const {router, ctx} = appContext
 	const lc = ctx.query?.locale?.replace('-', '_') || process.env.NEXT_PUBLIC_LOCALE
 	setLocale(lc)
@@ -41,6 +40,7 @@ MyApp.getInitialProps = async (appContext) => {
 		appProps.locale = lc
 		appProps.locales = locales
 		appProps.settings = {}
+
 		settings?.forEach(element => { appProps.settings[element._type] = element })
 	} catch (error) {
 		console.error(error)

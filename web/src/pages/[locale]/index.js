@@ -4,18 +4,18 @@ import useWindowResize from 'hooks/useWindowResize'
 import {getHome, setLocale} from 'lib/api'
 import {useRef, useState} from 'react'
 import {cn} from 'utils/classnames'
-import styles from './index.module.scss'
+import styles from '../index.module.scss'
 import {CloudinaryImage} from 'components/image/Image'
 import Key from 'svgs/key.svg'
 import {animate, style, timeline} from 'motion'
 import {ParallaxMedia} from 'components/parallaxMedia/ParallaxMedia'
 import {expoInOut, quartInOut} from 'eases'
-import useAppStore from 'stores/useAppStore'
-import useMediaQuery from 'hooks/useMediaQuery'
 import useIsomorphicLayoutEffect from 'hooks/useIsomorphicLayoutEffect'
+import useMediaQuery from 'hooks/useMediaQuery'
+import useAppStore from 'stores/useAppStore'
 import Locale from 'components/locale/Locale'
-import Letter from 'svgs/letter.svg'
-import LogoSezane from 'svgs/logo-sezane.svg'
+import LogoSezane from '../../svgs/logo-sezane.svg'
+import Letter from '../../svgs/letter.svg'
 
 const Home = (props) => {
 	const {
@@ -76,6 +76,20 @@ const Home = (props) => {
 	// 	tl.current.currentTime = ratio
 	// }, {offset: [[0, 0], [0.75, 1]]})
 
+	const resizeIframe = (obj) => {
+		obj.target.style.height = obj.target.contentWindow.document.documentElement.scrollHeight + 'px'
+	}
+
+	const footerLocale = {
+		fr_fr: 'fr',
+		en_us: 'us',
+		en_ca: 'us',
+		en_au: 'au',
+		en_uk: 'en',
+		en_da: 'eu',
+		en_eu: 'eu',
+	}
+
 	return (
 		<>
 			<div className={styles.main} style={{transform: style.mainY, position: style.mainPosition}}>
@@ -131,14 +145,14 @@ const Home = (props) => {
 							CGV
 						</a>
 
-						{/* {process.env.NODE_ENV === 'production' && (
-							 <iframe
+						{process.env.NODE_ENV === 'production' && (
+							{/* <iframe
 								ref={iframeRef}
 								frameBorder='0' scrolling='no'
 								width='100%'
 								onLoad={resizeIframe}
-								src={`https://${process.env.NEXT_PUBLIC_SANITY_API_DATASET === 'octobre' ? 'www.octobre-editions.com' : 'www.sezane.com'}/${footerLocale[process.env.NEXT_PUBLIC_LOCALE]}/footer`} />
-						)} */}
+								src={`https://${process.env.NEXT_PUBLIC_SANITY_API_DATASET === 'octobre' ? 'www.octobre-editions.com' : 'www.sezane.com'}/${footerLocale[process.env.NEXT_PUBLIC_LOCALE]}/footer`} /> */}
+						)}
 					</footer>
 				</main>
 			</div>
@@ -155,8 +169,15 @@ const Home = (props) => {
 	)
 }
 
-export async function getStaticProps ({preview = false, locale, locales, defaultLocale}) {
-	setLocale(locale || process.env.NEXT_PUBLIC_LOCALE, defaultLocale, locales)
+export const getStaticPaths = async ({locales, preview}) => {
+	return {
+		paths: [],
+		fallback: 'blocking',
+	}
+}
+
+export async function getStaticProps ({preview = false, params, locale, locales, defaultLocale}) {
+	setLocale(params.locale || process.env.NEXT_PUBLIC_LOCALE, defaultLocale, locales)
 
 	const [home] = await Promise.all([
 		getHome(preview, process.env.NEXT_PUBLIC_SANITY_API_DATASET),

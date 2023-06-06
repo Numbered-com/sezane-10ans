@@ -180,7 +180,7 @@ export async function getSettings (preview) {
 		'slug': reference->slug.current
 	}`
 
-	const results = await client.fetch(`*[_id in path("settings.*") ${excludeDraft(preview)}] {
+	const results = await client.fetch(`*[_id == 'settings.general' ${excludeDraft(preview)}] {
 		...,
 	}`)
 

@@ -24,8 +24,8 @@ module.exports =
 	// 	},
 	// },
 	// i18n: {
-	// 	locales: ['en-us', 'fr-fr'],
-	// 	defaultLocale: 'en-us',
+	// 	locales: ['en_us', 'fr_fr'],
+	// 	defaultLocale: 'fr_fr',
 	// 	localeDetection: false,
 	// },
 	// assetPrefix: process.env.NEXT_PUBLIC_BUILD ? `/${process.env.NEXT_PUBLIC_LOCALE.replace('_', '-')}` : '',
