@@ -46,6 +46,8 @@ const Layout = ({appProps, pageProps, children}) => {
 
 	useRaf(time => lenis?.raf(time), true)
 
+	if (!appProps.settings?.settings) return null
+
 	return (
 		<>
 			<Header />
