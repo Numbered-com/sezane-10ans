@@ -157,8 +157,45 @@
 }
 
 .footer {
-	padding-bottom: 10rem;
+	padding: 2rem 0;
 	background: $white;
+	text-align: center;
+	font-size: 1.6rem;
+	font-family: $font-serif;
+
+	@include desktop {
+		padding: 3rem 0;
+	}
+
+	h2 {
+		font-weight: bold;
+		text-transform: uppercase;
+		font-family: $font-oswald;
+		padding-top: 2rem;
+		border-top: 1px solid rgba($black, 0.6);
+		margin: 0 auto 2rem;
+		width: span(10);
+
+		@include desktop {
+			width: span(16);
+			padding-top: 3rem;
+		}
+	}
+
+	.logo {
+		display: block;
+		width: 12.4rem;
+		margin: 2.4rem auto 0.8rem;
+	}
+
+	.socials {
+		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
 }
 
 .products {

@@ -22,6 +22,15 @@ export const imageBuilder = sanityImage(cdnClient)
 
 // -----------------------------------------------------o locales
 
+const locale = {current: 'fr'}
+const locales = {current: ['fr']}
+const defaultLocale = {current: 'fr'}
+export const setLocale = (value, defaultValue, list) => {
+	if (value) locale.current = value
+	if (defaultValue) defaultLocale.current = defaultValue
+	if (list) locales.current = list
+}
+
 export async function getLocalisation () {
 	const results = await client.fetch(`*[_type == 'locale']{'key': title, 'value': coalesce(${locale.current}, ${defaultLocale.current}, title)}`)
 	const strings = {}
@@ -29,15 +38,6 @@ export async function getLocalisation () {
 		strings[element.key] = element.value || element.key
 	})
 	return strings
-}
-
-const locale = {current: 'en'}
-const locales = {current: ['en']}
-const defaultLocale = {current: 'en'}
-export const setLocale = (value, defaultValue, list) => {
-	if (value) locale.current = value
-	if (defaultValue) defaultLocale.current = defaultValue
-	if (list) locales.current = list
 }
 
 /**
@@ -180,12 +180,8 @@ export async function getSettings (preview) {
 		'slug': reference->slug.current
 	}`
 
-	const results = await client.fetch(`*[_id in path("settings.*") ${excludeDraft(preview)}] {
+	const results = await client.fetch(`*[_id == 'settings.general' ${excludeDraft(preview)}] {
 		...,
-		${getLinks('linksPrimary')},
-		${getLinks('linksSecondary')},
-		${footerLink('footerLinkDefault')},
-		${getLinks('links')}
 	}`)
 
 	return localize(results)
