@@ -1,2 +1,2 @@
-rm -f function.zip && zip -r function.zip . && aws lambda update-function-code --function-name 10ans-send --zip-file fileb://function.zip
-#rm -f function.zip && zip -r function.zip . && aws lambda update-function-code --function-name la-liste-send --zip-file fileb://function.zip
+#rm -f function.zip && zip -r function.zip . && aws lambda update-function-code --function-name 10ans-send --zip-file fileb://function.zip
+rm -f function.zip && zip -r function.zip . && aws lambda update-function-code --function-name la-liste-send --zip-file fileb://function.zip
