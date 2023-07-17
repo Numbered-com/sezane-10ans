@@ -122,7 +122,7 @@ const Home = (props) => {
 					</header>
 					<RegisterForm {...props} onSubmit={handleSubmit} />
 					<footer className={styles.footer}>
-						<h2><Locale>Suivez l'actualité du festival paradiso</Locale></h2>
+						{/* <h2><Locale>Suivez l'actualité du festival paradiso</Locale></h2>
 						<span>#CinemaParadisoLouvre <a href='https://www.instagram.com/mk2hotelparadiso/' target='_blank' rel='noopener noreferrer'>@mk2hotelparadiso</a></span>
 						<a href='https://www.sezane.com/fr' className={styles.logo}><LogoSezane /></a>
 						<div className={styles.socials}>
@@ -143,15 +143,15 @@ const Home = (props) => {
 						</div>
 						<a className={styles.cgv} href='https://www.sezane.com/fr/apropos/conditions-generales-de-vente' target='_blank' rel='noopener noreferrer'>
 							CGV
-						</a>
+						</a> */}
 
 						{process.env.NODE_ENV === 'production' && (
-							{/* <iframe
+							<iframe
 								ref={iframeRef}
 								frameBorder='0' scrolling='no'
 								width='100%'
 								onLoad={resizeIframe}
-								src={`https://${process.env.NEXT_PUBLIC_SANITY_API_DATASET === 'octobre' ? 'www.octobre-editions.com' : 'www.sezane.com'}/${footerLocale[process.env.NEXT_PUBLIC_LOCALE]}/footer`} /> */}
+								src={`https://${process.env.NEXT_PUBLIC_SANITY_API_DATASET === 'octobre' ? 'www.octobre-editions.com' : 'www.sezane.com'}/${footerLocale[process.env.NEXT_PUBLIC_LOCALE]}/footer`} />
 						)}
 					</footer>
 				</main>
