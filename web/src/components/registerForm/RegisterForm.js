@@ -6,27 +6,31 @@ import {CloudinaryImage} from 'components/image/Image'
 import Input from 'components/input/Input'
 import Locale from 'components/locale/Locale'
 import useLocale from 'hooks/useLocale'
-import {useRef} from 'react'
+import {useRef, useState} from 'react'
 import useFormStore from 'stores/useFormStore'
 import {cn} from 'utils/classnames'
 import styles from './registerForm.module.scss'
+import {ParallaxMedia} from 'components/parallaxMedia/ParallaxMedia'
 
 const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, formOptin1, formOptin2, onSubmit}) => {
 	const locale = useLocale()
 	const optin1Ref = useRef(null)
 	const optin2Ref = useRef(null)
+	const [isLoading, setIsLoading] = useState(false)
 	const setSenderInfo = useFormStore(state => state.setSenderInfo)
 
 	const {query: {locale: lc, dataset}} = useRouter()
 	const currentLang = lc || process.env.NEXT_PUBLIC_LOCALE
 	// const currentDataset = dataset || process.env.NEXT_PUBLIC_SANITY_API_DATASET
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
+
+		setIsLoading(true)
 
 		const data = new FormData(e.currentTarget)
 		setSenderInfo({
-			name: data.get('name'),
+			name: data.get('firstname') + ' ' + data.get('name'),
 			email: data.get('email'),
 			// invitation: false,
 			invitation: optin1Ref.current.checked,
@@ -39,7 +43,8 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 			object[key] = value
 		})
 
-		fetch('https://sa31mci2pi.execute-api.eu-west-3.amazonaws.com/default/10ans-register-user', {
+		await fetch('https://uckcdihdpb.execute-api.eu-west-3.amazonaws.com/default/register', {
+		// await fetch('https://sa31mci2pi.execute-api.eu-west-3.amazonaws.com/default/10ans-register-user', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -49,17 +54,20 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 		}).then((res) => {
 			return res.json()
 		}).then((data) => {
-			console.log('Intro.js', data)
+			console.log(data)
 			if (onSubmit) onSubmit()
 		}).catch((e) => {
 			console.error(e)
 		})
+
+		setIsLoading(false)
 	}
 
 	return (
 		<div className={styles.registerForm}>
-
-			<CloudinaryImage src={formImage} width={720} height={810} className={styles.background} layout='fill' objectFit='cover' />
+			<ParallaxMedia distance={200} className={styles.background}>
+				<CloudinaryImage src={formImage} width={720} height={810} layout='fill' objectFit='cover' desktopWidth={620} />
+			</ParallaxMedia>
 
 			<div className={styles.card}>
 				{formSurtitle && <span className='pm-m pd-md italic'>{formSurtitle}</span>}
@@ -67,15 +75,16 @@ const RegisterForm = ({formSurtitle, formTitle, formDescription, formImage, form
 				<div className={styles.content}>
 					<p className={cn('pm-m pd-md italic', styles.description)}>{formDescription}</p>
 					<form className={styles.form} onSubmit={handleSubmit}>
-						<Input type='text' name='name' placeholder={locale('Prénom')} className={styles.input} required />
-						<Input type='email' name='email' placeholder={locale('Adresse e-mail')} className={styles.input} required />
+						<Input type='text' name='firstname' placeholder={locale('Firstname')} className={styles.input} required />
+						<Input type='text' name='name' placeholder={locale('Last name')} className={styles.input} required />
+						<Input type='email' name='email' placeholder={locale('E-mail address')} className={styles.input} required />
 						<Checkbox ref={optin1Ref} className={cn(styles.input, styles.checkbox, styles.invitation)} id='invitation' name='invitation'>
 							<CustomBlockContent blocks={formOptin1} className={styles.legals} />
 						</Checkbox>
 						<Checkbox ref={optin2Ref} className={cn(styles.input, styles.checkbox)} id='consent' name='consent' required>
 							<CustomBlockContent blocks={formOptin2} className={styles.legals} />
 						</Checkbox>
-						<Button type='submit' variant={ButtonVariant.rect} className={styles.button}><Locale>Je tente ma chance</Locale></Button>
+						<Button type='submit' variant={ButtonVariant.rect} className={styles.button} disabled={isLoading}><Locale>I try my luck</Locale></Button>
 					</form>
 				</div>
 			</div>

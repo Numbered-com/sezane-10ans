@@ -8,7 +8,7 @@
 	outline: none;
 	background: none;
 	text-decoration: none;
-	font-family: $font-serif-title;
+	font-family: $font-serif;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -17,9 +17,8 @@
 	line-height: 1;
 
 	&.rect {
-		font-size: 1.2rem;
 		height: 3.4rem;
-		font-size: 1.8rem;
+		font-size: 1.5rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -31,6 +30,10 @@
 		background-color: $black;
 		font-style: italic;
 		letter-spacing: 0.04rem;
+
+		@include mobile {
+			width: 26rem;
+		}
 
 		@include desktop {
 			height: 3.7rem;

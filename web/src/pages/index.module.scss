@@ -1,9 +1,123 @@
+.overlay {
+	position: fixed;
+	z-index: 10;
+
+	@include desktop {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+
+		& > div {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	@include mobile {
+		display: none;
+	}
+
+	$svgWidth: 5.9vw;
+	$svgHeight: 11.8vw;
+
+	svg {
+		width: $svgWidth;
+		height: $svgHeight;
+	}
+
+	i {
+		&::before,
+		&::after {
+			display: block;
+			content: '';
+			position: absolute;
+			left: 0;
+			background-color: #efebe7;
+		}
+
+		&:first-child {
+			&::before,
+			&::after {
+				width: 100%;
+				height: 50%;
+			}
+
+			&::before {
+				bottom: 50%;
+				margin-bottom: calc($svgHeight / 2 - 1px);
+			}
+
+			&::after {
+				top: 50%;
+				margin-top: calc($svgHeight / 2 - 1px);
+			}
+		}
+
+		&:last-child {
+			&::before,
+			&::after {
+				top: 0;
+				height: 100%;
+				width: 50%;
+			}
+
+			&::before {
+				left: 50%;
+				margin-left: calc($svgWidth / 2 - 1px);
+			}
+
+			&::after {
+				right: 50%;
+				left: auto;
+				margin-right: calc($svgWidth / 2 - 1px);
+			}
+		}
+	}
+}
+
 .header {
 	position: relative;
 	text-align: center;
 
+	@include desktop {
+		margin-top: 0;
+	}
+
 	h1 {
 		padding: 0;
+	}
+
+	.mediaWrapper {
+		@include mobile {
+			height: 100vh;
+			height: 100svh;
+			padding-top: 5.7rem;
+		}
+
+		& > div {
+			@include mobile {
+				height: 100%;
+			}
+		}
+
+		.background {
+			transform-origin: 50% 5%;
+
+			@include mobile {
+				height: 100%;
+			}
+
+			& > span {
+				@include mobile {
+					height: 100% !important;
+				}
+			}
+		}
 	}
 
 	.subtitle {
@@ -22,12 +136,16 @@
 		position: absolute;
 		z-index: 1;
 		bottom: 1.5rem;
-		margin-top: 1.5rem;
 		color: $white;
+		width: 100%;
+
+		@include mobile {
+			padding: 1rem;
+		}
 
 		@include desktop {
 			bottom: 6rem;
-			padding: 0 span(2);
+			padding: 0 span(1);
 		}
 
 		p {
@@ -39,8 +157,45 @@
 }
 
 .footer {
-	padding-bottom: 10rem;
+	padding: 2rem 0;
 	background: $white;
+	text-align: center;
+	font-size: 1.6rem;
+	font-family: $font-serif;
+
+	@include desktop {
+		padding: 3rem 0;
+	}
+
+	h2 {
+		font-weight: bold;
+		text-transform: uppercase;
+		font-family: $font-oswald;
+		padding-top: 2rem;
+		border-top: 1px solid rgba($black, 0.6);
+		margin: 0 auto 2rem;
+		width: span(10);
+
+		@include desktop {
+			width: span(16);
+			padding-top: 3rem;
+		}
+	}
+
+	.logo {
+		display: block;
+		width: 12.4rem;
+		margin: 2.4rem auto 0.8rem;
+	}
+
+	.socials {
+		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
 }
 
 .products {

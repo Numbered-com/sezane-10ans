@@ -40,6 +40,7 @@ MyApp.getInitialProps = async (appContext) => {
 		appProps.locale = lc
 		appProps.locales = locales
 		appProps.settings = {}
+
 		settings?.forEach(element => { appProps.settings[element._type] = element })
 	} catch (error) {
 		console.error(error)

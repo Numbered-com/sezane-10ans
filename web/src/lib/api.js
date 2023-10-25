@@ -1,6 +1,7 @@
 import {cdnClient, client} from './sanity'
 import sanityImage from '@sanity/image-url'
 import sanityClient from '@sanity/client'
+import {deepCopy, WalkBuilder} from 'walkjs'
 
 const options = {
 	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'qoj23imy',
@@ -21,11 +22,13 @@ export const imageBuilder = sanityImage(cdnClient)
 
 // -----------------------------------------------------o locales
 
-const locale = {current: 'en_us'}
-const defaultLocale = {current: 'en_us'}
-export const setLocale = (value, defaultValue) => {
+const locale = {current: 'fr'}
+const locales = {current: ['fr']}
+const defaultLocale = {current: 'fr'}
+export const setLocale = (value, defaultValue, list) => {
 	if (value) locale.current = value
 	if (defaultValue) defaultLocale.current = defaultValue
+	if (list) locales.current = list
 }
 
 export async function getLocalisation () {
@@ -40,25 +43,123 @@ export async function getLocalisation () {
 /**
  * Localize content
  * Fallbacks on default locale if content isn't translated
- * @param {*} value
+ * @param {*} nodes
  */
-const localize = (value) => {
-	const languages = [locale.current, defaultLocale.current]
+export const localize = (nodes) => {
+	new WalkBuilder()
+		.withGlobalFilter(x => /^locale[A-Z]/.test(x.val?._type) || (x.val?._type === 'object' && x.val?.[defaultLocale.current]))
+		.withSimpleCallback(node => {
+			// replace node with its localized value
+			if (node?.parent?.val) {
+				if (node.val?.[locale.current] || node.val?.[defaultLocale.current]) {
+					node.parent.val[node.key] = node.val[locale.current] || node.val[defaultLocale.current]
+				} else {
+					delete node.parent.val[node.key]
+				}
+			}
+		})
+		.walk(nodes)
 
-	if (Array.isArray(value)) {
-		return value.map(v => localize(v))
-	} else if (value && typeof value === 'object') {
-		if (/^locale[A-Z]/.test(value._type)) {
-			const language = languages.find(lang => value[lang])
-			return value[language] || null
+	return nodes
+}
+
+export const resolveReferences = async (input, preview = false, maxDepth = 2) => {
+	const store = new Map()
+
+	const replaceNode = (node, id) => {
+		const doc = store.get(id)
+		if (doc) {
+			delete node._updatedAt
+			delete node._rev
+
+			if (
+				['internalLink', 'internalLinkWithLabel', 'internalLinkWithSub'].includes(node.parent?.val?._type) ||
+				node.parent?.val?.selectedTab === 'internalLink'
+			) {
+				const values = {
+					slug: deepCopy(doc.slug),
+					label: typeof node.parent?.val?.label === 'string'
+						? node.parent?.val?.label
+						: (node.parent?.val?.label || doc.title) && deepCopy(node.parent?.val?.label || doc.title),
+					docType: doc._type,
+				}
+
+				const selectedTab = node.parent?.val?.selectedTab
+				if (selectedTab) {
+					values.selectedTab = selectedTab
+				}
+
+				const _key = node.val._key || node.parent.val._key || doc._key
+				if (_key) {
+					values._key = _key
+				}
+
+				Object.keys(node.parent.val).forEach(key => delete node.parent.val[key])
+				Object.keys(values).forEach(key => {
+					node.parent.val[key] = values[key]
+				})
+			} else {
+				Object.keys(node.val).forEach(key => delete node.val[key])
+				Object.keys(doc).forEach(key => {
+					const value = doc[key]
+					node.val[key] = typeof value === 'object' ? deepCopy(value) : value
+				})
+			}
 		}
-
-		return Object.keys(value).reduce((result, key) => {
-			result[key] = localize(value[key])
-			return result
-		}, {})
 	}
-	return value
+
+	const iterate = async (nodes) => {
+		const ids = new Map()
+
+		new WalkBuilder()
+			.withGlobalFilter(x => x.val?._type === 'reference')
+			.withSimpleCallback(async (node) => {
+				const refId = node.val._ref
+
+				if (typeof refId !== 'string') {
+					throw new Error('node.val._ref is not set')
+				}
+
+				if (!refId.startsWith('image-')) {
+					if (!store.has(refId)) {
+						// unresolved, add it to the list
+						ids.set(refId, node)
+					} else {
+						// already resolved, can be replaced immediately
+						replaceNode(node, refId)
+					}
+				}
+			})
+			.walk(nodes)
+
+		if (ids.size) {
+			// fetch all references at once
+			const documents = await getClient(preview).fetch(`*[_id in [${[...ids.keys()].map(id => `'${id}'`).join(',')}]]{...}`)
+			documents.forEach(element => {
+				store.set(element._id, element)
+			})
+
+			// replace them
+			ids.forEach((node, id) => {
+				replaceNode(node, id)
+			})
+
+			if (!--maxDepth) {
+				console.warn(`Sanity autoresolver max depth reached`)
+				return
+			}
+
+			// iterate threw newly fetched nodes
+			await iterate(nodes)
+		}
+	}
+
+	await iterate(input)
+}
+
+export const resolveAndLocalize = async (result, preview = false, maxDepth = 2) => {
+	await resolveReferences(result, preview, maxDepth)
+	localize(result)
 }
 
 // -----------------------------------------------------o fields
@@ -79,12 +180,8 @@ export async function getSettings (preview) {
 		'slug': reference->slug.current
 	}`
 
-	const results = await client.fetch(`*[_id in path("settings.*") ${excludeDraft(preview)}] {
+	const results = await client.fetch(`*[_id == 'settings.general' ${excludeDraft(preview)}] {
 		...,
-		${getLinks('linksPrimary')},
-		${getLinks('linksSecondary')},
-		${footerLink('footerLinkDefault')},
-		${getLinks('links')}
 	}`)
 
 	return localize(results)
@@ -122,7 +219,9 @@ export async function getHome (preview, dataset) {
 		.fetch(/* groq */`*[_id == 'page-home' ${excludeDraft(preview)}]{
 			...,
 		}[0]`)
-	return localize(result)
+	await resolveAndLocalize(result, preview)
+
+	return result
 }
 
 export async function getPageBySlug (slug, preview) {
