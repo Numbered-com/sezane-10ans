@@ -29,6 +29,7 @@ module.exports =
 	// 	localeDetection: false,
 	// },
 	// assetPrefix: process.env.NEXT_PUBLIC_BUILD ? `/${process.env.NEXT_PUBLIC_LOCALE.replace('_', '-')}` : '',
+	assetPrefix: process.env.NEXT_PUBLIC_BUILD ? `/10-ans-de-reves/${process.env.NEXT_PUBLIC_LOCALE.replace('_', '-')}` : '',
 	sassOptions: {
 		prependData: `
 			@use "sass:math";
@@ -108,4 +109,4 @@ module.exports =
 		]
 	},
 	rewrites,
-	}
+}

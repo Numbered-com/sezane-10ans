@@ -12,7 +12,7 @@ exports.handler = async function (event, context) {
 	const params = event.body ? JSON.parse(event.body) : {}
 	if (params.name && params.email && params.referral) {
 		const promise = new Promise(function (resolve, reject) {
-			api.subscribers.addSubscriber('c3f5a8b18437d669dd5d236acad5fac9', {
+			api.subscribers.addSubscriber('ea393fc6cdc138b784c5f2f14ea19641', {
 				EmailAddress: params.email,
 				Name: params.firstname + ' ' + params.name,
 				CustomFields: [
